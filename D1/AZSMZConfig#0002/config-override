@@ -8,18 +8,18 @@ M205 X0.00500 Z-1.00000 S0.00000
 ;Max feedrates in mm/sec, XYZ cartesian, ABC actuator:
 M203 X500.00000 Y500.00000 Z500.00000 A625.00000 B625.00000 C625.00000
 ;Optional arm solution specific settings:
-M665 A0.00000 B1.02693 C1.02693 D0.31685 E-0.11334 F-0.98487 L314.84937
-M665 R157.67720
+M665 A0.00000 B1.26401 C1.26401 D0.42764 E-0.17381 F-0.95270 L314.71689
+M665 R157.54652
 ;WCS settings
 G54
 ;Digipot Motor currents:
 M907 X0.80000 Y0.80000 Z0.80000 E0.80000 
 ;Home offset (mm):
-M206 X0.00 Y0.00 Z6.24
+M206 X0.00 Y0.00 Z5.93
 ;Trim (mm):
-M666 X-0.746 Y0.000 Z-0.295
+M666 X-0.046 Y0.000 Z-0.425
 ;Max Z
-M665 Z373.300
+M665 Z373.544
 ;E Steps per mm:
 M92 E916.0000 P9677
 ;E Filament diameter:
@@ -43,4 +43,4 @@ M143 S1 P300.0000
 ;Probe feedrates Slow/fast(K)/Return (mm/sec) max_z (mm) height (mm):
 M670 S5.00 K50.00 R0.00 Z378.00 H10.00
 ;ABC=Shimming data; D=Shimming; E=Depth map enable; Z=Master enable
-M667 A0.1912 B-0.0808 C0.0430 D1 E1 Z1
+M667 A-0.1683 B-0.0310 C0.1411 D1 E1 Z1
