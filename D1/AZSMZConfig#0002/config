@@ -6,7 +6,7 @@
 # The gamma tower height is used for all towers on delta robots
 # Rest of the tower config is below, under Endstops
 # ---------------------------------------------------------------------
-gamma_max                                    378
+gamma_max                                    373.544
 
 
 # Delta Geometry
