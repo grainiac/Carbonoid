@@ -65,8 +65,8 @@ zprobe.decelerate_runout                     1                # how many millime
 
 # Speeds
 # ---------------------------------------------------------------------
-default_feed_rate                            9000             # Default rate ( mm/minute ) for G1/G2/G3 moves
-default_seek_rate                            9000             # Default rate ( mm/minute ) for G0 moves
+default_feed_rate                            3600             # Default rate ( mm/minute ) for G1/G2/G3 moves
+default_seek_rate                            3600             # Default rate ( mm/minute ) for G0 moves
 mm_per_arc_segment                           0.25             # Arcs are cut into segments ( lines ), this is the length for these segments
                                                               # Smaller values mean more resolution, higher values mean faster computation
 mm_per_line_segment                          5                # Lines can be cut into segments (not useful with cartesian robots).
@@ -86,8 +86,8 @@ gamma_steps_per_mm                           160              # Steps per mm for
 acceleration                                 2400             # Acceleration in mm/second/second.
 acceleration_ticks_per_second                1000             # Number of times per second the speed is updated
 planner_queue_size                           32               # DO NOT CHANGE THIS UNLESS YOU KNOW EXACTLY WHAT YOUR ARE DOING
-junction_deviation                           0.05             # Similar to the old "max_jerk", in millimeters, see : https://github.com/grbl/grbl/blob/master/planner.c#L409
-
+junction_deviation                           0.01             # Similar to the old "max_jerk", in millimeters, see : https://github.com/grbl/grbl/blob/master/planner.c#L409
+z_junction_deviation	                     0                # -1 enable, 0 disable, do not set on delta printers
 
 # Endstops
 # ---------------------------------------------------------------------
@@ -111,9 +111,9 @@ gamma_min                                    0                #
 
 # Homing
 # ---------------------------------------------------------------------
-alpha_fast_homing_rate_mm_s                  100              # feedrates in mm/second
-beta_fast_homing_rate_mm_s                   100              # "
-gamma_fast_homing_rate_mm_s                  100              # "
+alpha_fast_homing_rate_mm_s                  60               # feedrates in mm/second
+beta_fast_homing_rate_mm_s                   60               # "
+gamma_fast_homing_rate_mm_s                  60               # "
 alpha_slow_homing_rate_mm_s                  10               # "
 beta_slow_homing_rate_mm_s                   10               # "
 gamma_slow_homing_rate_mm_s                  10               # "
@@ -134,37 +134,37 @@ base_stepping_frequency                      100000           # Base frequency f
 
 # Stepper module pins ( ports, and pin numbers, appending "!" to the number will invert a pin )
 # ---------------------------------------------------------------------
-alpha_step_pin                                 2.0              # Pin for alpha stepper step signal
-alpha_dir_pin                                  0.5              # Pin for alpha stepper direction
-alpha_en_pin                                   0.4              # Pin for alpha enable pin
-alpha_max_rate                                 30000.0          # mm/min
-x_axis_max_speed                               30000.0          # mm/min cartesian max speed
+alpha_step_pin                               2.0              # Pin for alpha stepper step signal
+alpha_dir_pin                                0.5              # Pin for alpha stepper direction
+alpha_en_pin                                 0.4              # Pin for alpha enable pin
+alpha_max_rate                               30000.0          # mm/min
+x_axis_max_speed                             30000.0          # mm/min cartesian max speed
 
-beta_step_pin                                  2.1              # Pin for beta stepper step signal
-beta_dir_pin                                   0.11             # Pin for beta stepper direction
-beta_en_pin                                    0.10             # Pin for beta enable
-beta_max_rate                                  30000.0          # mm/min
-y_axis_max_speed                               30000.0          # mm/min
+beta_step_pin                                2.1              # Pin for beta stepper step signal
+beta_dir_pin                                 0.11             # Pin for beta stepper direction
+beta_en_pin                                  0.10             # Pin for beta enable
+beta_max_rate                                30000.0          # mm/min
+y_axis_max_speed                             30000.0          # mm/min
 
-gamma_step_pin                                 2.2              # Pin for gamma stepper step signal
-gamma_dir_pin                                  0.20             # Pin for gamma stepper direction
-gamma_en_pin                                   0.19             # Pin for gamma enable
-gamma_max_rate                                 30000.0          # mm/min
-z_axis_max_speed                               30000.0          # mm/min
+gamma_step_pin                               2.2              # Pin for gamma stepper step signal
+gamma_dir_pin                                0.20             # Pin for gamma stepper direction
+gamma_en_pin                                 0.19             # Pin for gamma enable
+gamma_max_rate                               30000.0          # mm/min
+z_axis_max_speed                             30000.0          # mm/min
 
 
 # Extruder module configuration
 # ---------------------------------------------------------------------
-extruder.BondtechQR.enable                       true           # Whether to activate the extruder module at all. All configuration is ignored if false
+extruder.BondtechQR.enable                      true           # Whether to activate the extruder module at all. All configuration is ignored if false
 
-extruder.BondtechQR.steps_per_mm                 916            # Steps per mm for extruder stepper
-extruder.BondtechQR.default_feed_rate            4800           # Default rate ( mm/minute ) for moves where only the extruder moves
-extruder.BondtechQR.acceleration                 2000           # Acceleration for the stepper motor, as of 0.6, arbitrary ratio
-extruder.BondtechQR.max_speed                    80             # mm/s
+extruder.BondtechQR.steps_per_mm                916            # Steps per mm for extruder stepper
+extruder.BondtechQR.default_feed_rate           4800           # Default rate ( mm/minute ) for moves where only the extruder moves
+extruder.BondtechQR.acceleration                2000           # Acceleration for the stepper motor, as of 0.6, arbitrary ratio
+extruder.BondtechQR.max_speed                   80             # mm/s
 
-extruder.BondtechQR.step_pin                     2.3            # Pin for extruder step signal
-extruder.BondtechQR.dir_pin                      0.22!          # Pin for extruder dir signal
-extruder.BondtechQR.en_pin                       0.21           # Pin for extruder enable signal
+extruder.BondtechQR.step_pin                    2.3            # Pin for extruder step signal
+extruder.BondtechQR.dir_pin                     0.22!          # Pin for extruder dir signal
+extruder.BondtechQR.en_pin                      0.21           # Pin for extruder enable signal
 
 # Hotend temperature control configuration
 # temperature_control.hotend.thermistor can be one of the following:
@@ -184,7 +184,7 @@ temperature_control.hotend.max_temp            300              # Set maximum te
 # Hotend PID configuration
 # ---------------------------------------------------------------------
 temperature_control.hotend.p_factor            50.8             # permanently set the PID values after an auto pid
-temperature_control.hotend.i_factor            6,745            #
+temperature_control.hotend.i_factor            6.745            #
 temperature_control.hotend.d_factor            95               #
 temperature_control.hotend.max_pwm             255              # max pwm, 64 is a good value if driving a 12v resistor with 24v.
 
@@ -276,9 +276,15 @@ custom_menu.power_off.enable                   true              #
 custom_menu.power_off.name                     Power_off         #
 custom_menu.power_off.command                  M81               #
 
+custom_menu.move0.enable                       true              #
+custom_menu.move0.name                         Goto_Home         #
+custom_menu.move0.command                      G28               #
 custom_menu.move1.enable                       true              #
-custom_menu.move1.name                         Goto_X0_Y_0_Z1    #
-custom_menu.move1.command                      G0_Z1             #
+custom_menu.move1.name                         Goto_Z0           #
+custom_menu.move1.command                      G0_Z0             #
+custom_menu.move2.enable                       true              #
+custom_menu.move2.name                         Goto_Z1           #
+custom_menu.move2.command                      G0_Z1             #
 
 custom_menu.save1.enable                       true              #
 custom_menu.save1.name                         Set_Z0            #
@@ -317,12 +323,10 @@ custom_menu.mainfan2.command                   M43               #
 # Serial communications configuration ( baud rate default to 9600 if undefined )
 # ---------------------------------------------------------------------
 Serial.baud_rate                               250000            # Baud rate for the default hardware serial port
-uart0.baud_rate                                9600
-second_usb_serial_enable                       true              # This enables a second usb serial port (to have both pronterface
+second_usb_serial_enable                       false             # This enables a second usb serial port (to have both pronterface
                                                                  # and a terminal connected)
 # Miscellaneous
 # ---------------------------------------------------------------------
-leds_disable                                         false       # disable using leds after config loaded
-msd_disable                                          true        # disable the MSD (USB SDCARD) when set to true
-disable_msd                                          true                 
-dfu_enable                                           false   
+leds_disable                                   false             # disable using leds after config loaded
+msd_disable                                    false             # disable the MSD (USB SDCARD) when set to true                
+dfu_enable                                     false   
