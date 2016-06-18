@@ -65,8 +65,8 @@ zprobe.decelerate_runout                     1                # how many millime
 
 # Speeds
 # ---------------------------------------------------------------------
-default_feed_rate                            8000             # Default rate ( mm/minute ) for G1/G2/G3 moves
-default_seek_rate                            8000             # Default rate ( mm/minute ) for G0 moves
+default_feed_rate                            9000             # Default rate ( mm/minute ) for G1/G2/G3 moves
+default_seek_rate                            9000             # Default rate ( mm/minute ) for G0 moves
 mm_per_arc_segment                           0.25             # Arcs are cut into segments ( lines ), this is the length for these segments
                                                               # Smaller values mean more resolution, higher values mean faster computation
 mm_per_line_segment                          5                # Lines can be cut into segments (not useful with cartesian robots).
@@ -86,7 +86,7 @@ gamma_steps_per_mm                           160              # Steps per mm for
 acceleration                                 2400             # Acceleration in mm/second/second.
 acceleration_ticks_per_second                1000             # Number of times per second the speed is updated
 planner_queue_size                           32               # DO NOT CHANGE THIS UNLESS YOU KNOW EXACTLY WHAT YOUR ARE DOING
-junction_deviation                           0.005            # Similar to the old "max_jerk", in millimeters, see : https://github.com/grbl/grbl/blob/master/planner.c#L409
+junction_deviation                           0.05             # Similar to the old "max_jerk", in millimeters, see : https://github.com/grbl/grbl/blob/master/planner.c#L409
 
 
 # Endstops
@@ -126,12 +126,10 @@ alpha_trim                                   0                # software trim fo
 beta_trim                                    0                # software trim for beta stepper endstop
 gamma_trim                                   0                # software trim for gamma stepper endstop
 
-
 # Stepper module configuration
 # ---------------------------------------------------------------------
 microseconds_per_step_pulse                  1                # Duration of step pulses to stepper drivers, in microseconds
 base_stepping_frequency                      100000           # Base frequency for stepping
-
 
 
 # Stepper module pins ( ports, and pin numbers, appending "!" to the number will invert a pin )
@@ -185,9 +183,9 @@ temperature_control.hotend.max_temp            300              # Set maximum te
 
 # Hotend PID configuration
 # ---------------------------------------------------------------------
-temperature_control.hotend.p_factor            33.0             # permanently set the PID values after an auto pid
-temperature_control.hotend.i_factor            2.843            #
-temperature_control.hotend.d_factor            96               #
+temperature_control.hotend.p_factor            50.8             # permanently set the PID values after an auto pid
+temperature_control.hotend.i_factor            6,745            #
+temperature_control.hotend.d_factor            95               #
 temperature_control.hotend.max_pwm             255              # max pwm, 64 is a good value if driving a 12v resistor with 24v.
 
 # Heated bed PID configuration
@@ -236,12 +234,12 @@ temperatureswitch.hotend.cooldown_poll         60               # poll cooldown 
 
 # LCD Panel http://smoothieware.org/panel
 # ---------------------------------------------------------------------
-# AZSMZ mini
+# AZSMZ LCD on AZSMZ mini
 panel.enable                                   true              # set to true to enable the panel code
 panel.lcd                                      viki2
 panel.reverse                                  1
 panel.contrast                                 19
-panel.busy_pin			                       nc                # Only if using the universal_adapter
+panel.spi_frequency			                   500000            # SPI port frequency
 panel.spi_channel                              0                 # spi channel to use  ; GLCD EXP1 Pins 3,5 (MOSI, SCLK)
 panel.spi_cs_pin                               1.22              # spi chip select     ; GLCD EXP1 Pin 4
 panel.a0_pin                                   2.6
@@ -249,20 +247,20 @@ panel.encoder_a_pin                            4.28!^            # encoder pin  
 panel.encoder_b_pin                            1.27!^            # encoder pin         ; GLCD EXP2 Pin 5
 panel.encoder_resolution                       4
 panel.click_button_pin                         3.26!^            # click button        ; GLCD EXP1 Pin 2
+panel.busy_pin                                 nc
 #panel.buzz_pin                                 1.30              # uncomment for enabling of the buzzer
-panel.back_button_pin                          1.23!^            # back button         ; GLCD EXP2 Pin 8
 
 # external sd card
-panel.external_sd                              false             # set to true if there is an extrernal sdcard on the panel
-#panel.external_sd.spi_channel                  0                 # set spi channel the sdcard is on
-#panel.external_sd.spi_cs_pin                   0.16              # set spi chip select for the sdcard (or any spare pin)
-#panel.external_sd.sdcd_pin                     3.25!^            # sd detect signal (set to nc if no sdcard detect) (or any spare pin)
+panel.external_sd                              true              # set to true if there is an extrernal sdcard on the panel
+panel.external_sd.spi_channel                  0                 # set spi channel the sdcard is on
+panel.external_sd.spi_cs_pin                   0.16              # set spi chip select for the sdcard (or any spare pin)
+panel.external_sd.sdcd_pin                     3.25!^            # sd detect signal (set to nc if no sdcard detect) (or any spare pin)
 
 # panel menu settings
 panel.menu_offset                              0                 # some panels will need 1 here
-panel.alpha_jog_feedrate                       6000              # x jogging feedrate in mm/min
-panel.beta_jog_feedrate                        6000              # y jogging feedrate in mm/min
-panel.gamma_jog_feedrate                       6000              # z jogging feedrate in mm/min
+panel.alpha_jog_feedrate                       1500              # x jogging feedrate in mm/min
+panel.beta_jog_feedrate                        1500              # y jogging feedrate in mm/min
+panel.gamma_jog_feedrate                       1500              # z jogging feedrate in mm/min
 panel.hotend_temperature                       200               # temp to set hotend when preheat is selected
 panel.bed_temperature                          70                # temp to set bed when preheat is selected
 
@@ -278,58 +276,15 @@ custom_menu.power_off.enable                   true              #
 custom_menu.power_off.name                     Power_off         #
 custom_menu.power_off.command                  M81               #
 
-# Extrude filament
-#
-custom_menu.extrude_long.enable                true              #
-custom_menu.extrude_long.name                  Extrude_100mm     #
-custom_menu.extrude_long.command               G91|G0_E100_F1500|G90
-custom_menu.extrude_medium.enable              true              #
-custom_menu.extrude_medium.name                Extrude_10mm      #
-custom_menu.extrude_medium.command             G91|G0_E10_F1500|G90
-custom_menu.extrude_short.enable               true              #
-custom_menu.extrude_short.name                 Extrude_1mm       #
-custom_menu.extrude_short.command              G91|G0_E1_F1500|G90
-# Retract filament
-#
-custom_menu.retract_100mm.enable               true              #
-custom_menu.retract_100mm.name                 Retract_100mm     #
-custom_menu.retract_100mm.command              G91|G0_E-100_F1500|G90
-custom_menu.retract_medium.enable              true              #
-custom_menu.retract_medium.name                Retract_10mm      #
-custom_menu.retract_medium.command             G91|G0_E-10_F1500|G90
-custom_menu.retract_short.enable               true              #
-custom_menu.retract_short.name                 Retract_1mm       #
-custom_menu.retract_short.command              G91|G0_E-1_F1500|G90
-
-custom_menu.probe1.enable                      true              #
-custom_menu.probe1.name                        Prepare_probing   #
-custom_menu.probe1.command                     G28|G0_Z20        #
-custom_menu.probe2.enable                      true              #
-custom_menu.probe2.name                        Run_probe_sequence! #
-custom_menu.probe2.command                     G32               #
-
 custom_menu.move1.enable                       true              #
-custom_menu.move1.name                         Home XY           #
-custom_menu.move1.command                      G28_X0_Y0         #
-custom_menu.move2.enable                       true              #
-custom_menu.move2.name                         Move_to_bed_center #
-custom_menu.move2.command                      G0_X100_Y100      #
-custom_menu.move3.enable                       true              #
-custom_menu.move3.name                         Move_to_set_Z0    #
-custom_menu.move3.command                      G0_X100_Y0        #
-
-custom_menu.save0.enable                       true              #
-custom_menu.save0.name                         Save_ZGrid_(M374) #
-custom_menu.save0.command                      M374              #
-custom_menu.load0.enable                       true              #
-custom_menu.load0.name                         Load_ZGrid_(M375) #
-custom_menu.load0.command                      M375              #
+custom_menu.move1.name                         Goto_X0_Y_0_Z1    #
+custom_menu.move1.command                      G0_Z1             #
 
 custom_menu.save1.enable                       true              #
-custom_menu.save1.name                         Set_Z0_(M306)     #
-custom_menu.save1.command                      M306_Z0           #
+custom_menu.save1.name                         Set_Z0            #
+custom_menu.save1.command                      M306_Z0|M500      #
 custom_menu.save2.enable                       true              #
-custom_menu.save2.name                         Save_config_(M500)#
+custom_menu.save2.name                         Save_config       #
 custom_menu.save2.command                      M500              #
 
 custom_menu.fan0.enable                        true              #
@@ -348,39 +303,26 @@ custom_menu.fan4.enable                        true              #
 custom_menu.fan4.name                          Fan_100pct        #
 custom_menu.fan4.command                       M106_S255         #
 
-# Only needed on a smoothieboard
-# ---------------------------------------------------------------------
-currentcontrol_module_enable                 true             #
-digipot_max_current                          2.0              # max current
-#digipot_factor                               106.0            # factor for converting current to digipot value
-return_error_on_unhandled_gcode              false            #
-
-
-# Pause button
-# ---------------------------------------------------------------------
-pause_button_enable                          true             #
+custom_menu.mainfan0.enable                    true              #
+custom_menu.mainfan0.name                      Main_Fan_On_High  #
+custom_menu.mainfan0.command                   M42_S255          #
+custom_menu.mainfan1.enable                    true              #
+custom_menu.mainfan1.name                      Main_Fan_On_Low   #
+custom_menu.mainfan1.command                   M42_S235          #
+custom_menu.mainfan2.enable                    true              #
+custom_menu.mainfan2.name                      Main_Fan_Off      #
+custom_menu.mainfan2.command                   M43               #
 
 
 # Serial communications configuration ( baud rate default to 9600 if undefined )
 # ---------------------------------------------------------------------
-uart0.baud_rate                              115200           # Baud rate for the default hardware serial port
-second_usb_serial_enable                     false            # This enables a second usb serial port (to have both pronterface and a terminal connected)
-
-
-# Laser module configuration
-# ---------------------------------------------------------------------
-laser_module_enable                          false            # Whether to activate the laser module at all. All configuration is ignored if false.
-#laser_module_pin                             2.7             # this pin will be PWMed to control the laser
-#laser_module_max_power                       0.8             # this is the maximum duty cycle that will be applied to the laser
-#laser_module_tickle_power                    0.0             # this duty cycle will be used for travel moves to keep the laser active without actually burning
-
-
-# Switch module for spindle control
-# ---------------------------------------------------------------------
-#switch.spindle.enable                        false           #
-
-
+Serial.baud_rate                               250000            # Baud rate for the default hardware serial port
+uart0.baud_rate                                9600
+second_usb_serial_enable                       true              # This enables a second usb serial port (to have both pronterface
+                                                                 # and a terminal connected)
 # Miscellaneous
 # ---------------------------------------------------------------------
-dfu_enable                                   false            # for linux developers, set to true to enable DFU
-msd_disable                                  false            # speeds up booting, but you can't mount the SD card over USB
+leds_disable                                         false       # disable using leds after config loaded
+msd_disable                                          true        # disable the MSD (USB SDCARD) when set to true
+disable_msd                                          true                 
+dfu_enable                                           false   

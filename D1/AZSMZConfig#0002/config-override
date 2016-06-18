@@ -2,9 +2,9 @@
 ;Steps per unit:
 M92 X160.00000 Y160.00000 Z160.00000
 ;Acceleration mm/sec^2:
-M204 S2400.00000 Z0.00000
+M204 S4800.00000 Z0.00000
 ;X- Junction Deviation, Z- Z junction deviation, S - Minimum Planner speed mm/sec:
-M205 X0.00500 Z-1.00000 S0.00000
+M205 X0.05000 Z-1.00000 S0.00000
 ;Max feedrates in mm/sec, XYZ cartesian, ABC actuator:
 M203 X500.00000 Y500.00000 Z500.00000 A625.00000 B625.00000 C625.00000
 ;Optional arm solution specific settings:
@@ -12,10 +12,8 @@ M665 A0.00000 B0.85867 C0.85867 D-1.36661 E-1.16208 F-1.74670 L385.00000
 M665 R158.74550
 ;WCS settings
 G54
-;Digipot Motor currents:
-M907 X0.80000 Y0.80000 Z0.80000 E0.80000 
 ;Home offset (mm):
-M206 X0.00 Y0.00 Z0.00
+M206 X0.00 Y0.00 Z52.60
 ;Trim (mm):
 M666 X-0.306 Y0.000 Z-1.315
 ;Max Z
@@ -33,7 +31,7 @@ M204 E2000.0000 P9677
 ;E max feed rate mm/sec:
 M203 E80.0000 P9677
 ;PID settings:
-M301 S0 P33.0000 I2.8430 D96.0000 X255.0000 Y255
+M301 S0 P50.7561 I6.7450 D95.4850 X255.0000 Y255
 ;Max temperature setting:
 M143 S0 P300.0000
 ;PID settings:
