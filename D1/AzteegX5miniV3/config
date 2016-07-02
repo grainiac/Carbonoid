@@ -21,11 +21,6 @@ gamma_max                                    301.5
 
 # Delta Geometry
 # ---------------------------------------------------------------------
-# arm_radius is DELTA_RADIUS in Repetier
-# DELTA_RADIUS = PRINTER_RADIUS - END_EFFECTOR_HORIZONTAL_OFFSET - CARRIAGE_HORIZONTAL_OFFSET
-#              = 199.0          - 33                             - 37.5
-#              = 128.5
-# ---------------------------------------------------------------------
 arm_solution                                 linear_delta     # default linear_delta, you can also try kossel
 arm_radius                                   158.745           # this is the horiontal distance from hinge to hinge when the effector is centered
 arm_length                                   385.00           # length of the delta arms (hopefully they're all the same!)
@@ -53,7 +48,7 @@ comprehensive-delta.probe_ignore_bed_temp                 true             # Don
 # ---------------------------------------------------------------------
 gamma_min_endstop                            nc               # normally 1.28. Change to nc to prevent conflict, not needed on Azteeg X5
 zprobe.enable                                true             # set to true to enable a zprobe
-zprobe.probe_pin                             0.25!^           # pin probe is attached to if NC remove the !, default 1.29!^
+zprobe.probe_pin                             1.22!^           # pin probe is attached to if NC remove the !, default 1.29!^
 zprobe.slow_feedrate                         10               # mm/sec probe Feed rate
 zprobe.fast_feedrate                         70               # move feedrate
 zprobe.debounce_count                        0                # set if noisy 100
@@ -85,7 +80,7 @@ gamma_steps_per_mm                           160              # Steps per mm for
 
 # Planner module configuration : Look-ahead and acceleration configuration
 # ---------------------------------------------------------------------
-acceleration                                 1000             # Acceleration in mm/second/second.
+acceleration                                 3000             # Acceleration in mm/second/second.
 acceleration_ticks_per_second                1000             # Number of times per second the speed is updated
 planner_queue_size                           32               # DO NOT CHANGE THIS UNLESS YOU KNOW EXACTLY WHAT YOUR ARE DOING
 junction_deviation                           0.05             # Similar to the old "max_jerk", in millimeters, see : https://github.com/grbl/grbl/blob/master/planner.c#L409
@@ -239,18 +234,36 @@ temperatureswitch.hotend.cooldown_poll         60               # poll cooldown 
 
 # LCD Panel http://smoothieware.org/panel
 # ---------------------------------------------------------------------
-# mini viki2 config for an azteeg mini V3 with IDC cable
 panel.enable                                 true
-panel.lcd                                    mini_viki2        # set type of panel
+
+# Viki2 config for an Azteeg X5 mini V3 with IDC cable
+panel.lcd                                    viki2             # set type of panel
 panel.spi_channel                            0                 # set spi channel to use P0_18,P0_15 MOSI,SCLK
 panel.spi_cs_pin                             0.16              # set spi chip select
 panel.encoder_a_pin                          3.25!^            # encoder pin
 panel.encoder_b_pin                          3.26!^            # encoder pin
 panel.click_button_pin                       2.11!^            # click button
 panel.a0_pin                                 2.6               # st7565 needs an a0
-panel.contrast                               4                 # override contrast setting (default is 9) miniViki (4 or lower)
-panel.encoder_resolution                     1                 # override number of clicks to move 1 item (default is 2)
-panel.menu_offset                            1                 # here controls how sensitive the menu is. some panels will need 1
+panel.contrast                               12                # override contrast setting (default is 9) miniViki (4 or lower)
+panel.encoder_resolution                     2                 # override number of clicks to move 1 item (default is 4)
+panel.menu_offset                            1                 # some panels will need 1 here
+# 4 wire cable signals
+panel.button_pause_pin                       1.30^             # kill/pause set one of these for the auxilliary button on viki2
+panel.buzz_pin                               0.25              # pin for buzzer on EXP2
+panel.blue_led_pin                           4.29              # pin for blue led on viki2 on EXP1
+panel.red_led_pin                            2.8               # pin for red led on viki2 on EXP1
+
+# mini Viki config for an Azteeg X5 mini V3 with IDC cable
+#panel.lcd                                    mini_viki2        # set type of panel
+#panel.spi_channel                            0                 # set spi channel to use P0_18,P0_15 MOSI,SCLK
+#panel.spi_cs_pin                             0.16              # set spi chip select
+#panel.encoder_a_pin                          3.25!^            # encoder pin
+#panel.encoder_b_pin                          3.26!^            # encoder pin
+#panel.click_button_pin                       2.11!^            # click button
+#panel.a0_pin                                 2.6               # st7565 needs an a0
+#panel.contrast                               4                 # override contrast setting (default is 9) miniViki (4 or lower)
+#panel.encoder_resolution                     1                 # override number of clicks to move 1 item (default is 2)
+#panel.menu_offset                            1                 # here controls how sensitive the menu is. some panels will need 1
 
 panel.external_sd                            true              # set to true if there is an extrernal sdcard on the panel
 panel.external_sd.spi_channel                0                 # set spi channel the sdcard is on
@@ -261,8 +274,8 @@ panel.alpha_jog_feedrate                     6000              # x jogging feedr
 panel.beta_jog_feedrate                      6000              # y jogging feedrate in mm/min
 panel.gamma_jog_feedrate                     200               # z jogging feedrate in mm/min
 
-panel.hotend_temperature                     190               # temp to set hotend when preheat is selected
-panel.bed_temperature                        80                # temp to set bed when preheat is selected
+panel.hotend_temperature                     205               # temp to set hotend when preheat is selected
+panel.bed_temperature                        63                # temp to set bed when preheat is selected
 
 # Custom menu entries.
 # ---------------------------------------------------------------------
@@ -324,17 +337,23 @@ custom_menu.mainfan2.command                   M43               #
 currentcontrol_module_enable                 true                #
 digipot_max_current                          1.5                 # max current
 digipot_factor                               113.5               # factor for converting current to digipot value
-return_error_on_unhandled_gcode              false               #
-leds_disable                                 true                # disable using leds after config loaded
-
 
 # Serial communications configuration ( baud rate default to 9600 if undefined )
 # ---------------------------------------------------------------------
-Serial.baud_rate                               250000            # Baud rate for the default hardware serial port
-second_usb_serial_enable                       false             # This enables a second usb serial port (to have both pronterface
-                                                                 # and a terminal connected)
-# Miscellaneous
+uart0.baud_rate                              115200           # Baud rate for the default hardware serial port
+second_usb_serial_enable                     false            # This enables a second usb serial port (to have both pronterface and a terminal connected)
+
+# network settings
 # ---------------------------------------------------------------------
-leds_disable                                   false             # disable using leds after config loaded
-msd_disable                                    false             # disable the MSD (USB SDCARD) when set to true                
-dfu_enable                                     false   
+network.enable                               false            # enable the ethernet network services
+network.webserver.enable                     true             # enable the webserver
+network.telnet.enable                        true             # enable the telnet server
+network.plan9.enable                         true             # enable the plan9 network filesystem
+network.ip_address                           10.11.12.124     # the IP address or auto (DHCP)
+network.ip_mask                              255.255.255.0    # the ip mask
+network.ip_gateway                           10.11.12.1       # the gateway address
+
+# kill button (used to be called pause) maybe assigned to a different pin, set to the onboard pin by default
+# ---------------------------------------------------------------------
+kill_button_enable                           true             # set to true to enable a kill button
+kill_button_pin                              2.12             # kill button pin. default is same as pause button 2.12 (2.11 is another good choice)
