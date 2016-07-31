@@ -132,21 +132,21 @@ base_stepping_frequency                      100000           # Base frequency f
 # Stepper module pins ( ports, and pin numbers, appending "!" to the number will invert a pin )
 # ---------------------------------------------------------------------
 alpha_step_pin                               2.1              # Pin for alpha stepper step signal
-alpha_dir_pin                                0.11             # Pin for alpha stepper direction
+alpha_dir_pin                                0.11!            # Pin for alpha stepper direction
 alpha_en_pin                                 0.10             # Pin for alpha enable pin
 alpha_current                                1.2              # max current in ampere
 alpha_max_rate                               30000.0          # mm/min
 x_axis_max_speed                             30000.0          # mm/min cartesian max speed
 
 beta_step_pin                                2.2              # Pin for beta stepper step signal
-beta_dir_pin                                 0.20             # Pin for beta stepper direction
+beta_dir_pin                                 0.20!            # Pin for beta stepper direction
 beta_en_pin                                  0.19             # Pin for beta enable
 beta_current                                 1.2              # max current in ampere
 beta_max_rate                                30000.0          # mm/min
 y_axis_max_speed                             30000.0          # mm/min
 
 gamma_step_pin                               2.3              # Pin for gamma stepper step signal
-gamma_dir_pin                                0.22             # Pin for gamma stepper direction
+gamma_dir_pin                                0.22!            # Pin for gamma stepper direction
 gamma_en_pin                                 0.21             # Pin for gamma enable
 gamma_current                                1.2              # max current in ampere
 gamma_max_rate                               30000.0          # mm/min
