@@ -180,7 +180,7 @@ extruder.BondtechQR.acceleration                2000           # Acceleration fo
 extruder.BondtechQR.max_speed                   50             # mm/s
 
 extruder.BondtechQR.step_pin                    2.0            # Pin for extruder step signal
-extruder.BondtechQR.dir_pin                     0.5!           # Pin for extruder dir signal
+extruder.BondtechQR.dir_pin                     0.5            # Pin for extruder dir signal
 extruder.BondtechQR.en_pin                      0.4            # Pin for extruder enable signal
 delta_current                                   1.2            # max current in ampere
 
