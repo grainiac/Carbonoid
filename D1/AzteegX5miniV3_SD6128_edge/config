@@ -17,13 +17,13 @@
 # The gamma tower height is used for all towers on delta robots
 # Rest of the tower config is below, under Endstops
 # ---------------------------------------------------------------------
-gamma_max                                    309.000
+gamma_max                                    300.00
 
 # Delta Geometry
 # ---------------------------------------------------------------------
 arm_solution                                 linear_delta     # default linear_delta, you can also try kossel
-arm_radius                                   158.726          # this is the horiontal distance from hinge to hinge when the effector is centered
-arm_length                                   368.329          # length of the delta arms (hopefully they're all the same!)
+arm_radius                                   160.00           # this is the horiontal distance from hinge to hinge when the effector is centered
+arm_length                                   367.50           # length of the delta arms (hopefully they're all the same!)
 
 
 # If you have a Z probe, you can select a calibration strategy here
@@ -38,29 +38,29 @@ arm_length                                   368.329          # length of the de
 # ---- Smoothieware's default delta calibration ----
 # run once, then run grid compensation
 # --------------------------------------------------
-#leveling-strategy.delta-calibration.enable                true            # basic delta calibration
-#leveling-strategy.delta-calibration.radius                140             # the probe radius in mm
-#leveling-strategy.delta-calibration.initial_height        65              # height above bed to stop initial move
+leveling-strategy.delta-calibration.enable                true            # basic delta calibration
+leveling-strategy.delta-calibration.radius                140             # the probe radius in mm
+leveling-strategy.delta-calibration.initial_height        65              # height above bed to stop initial move
 
 # ---- Smoothieware's grid compensation ----
-#leveling-strategy.delta-grid.enable                       true
-#leveling-strategy.delta-grid.radius                       140
-#leveling-strategy.delta-grid.size                         7               # must be odd, 7 means 7 * 7 == 49 probe points
-#leveling-strategy.delta-grid.do_home                      true
-#leveling-strategy.delta-grid.probe_offsets                0,0,0           # probe offsets x,y,z
-#leveling-strategy.delta-grid.save                         true
-#leveling-strategy.delta-grid.initial_height               65
+leveling-strategy.delta-grid.enable                       true
+leveling-strategy.delta-grid.radius                       140
+leveling-strategy.delta-grid.size                         7               # must be odd, 7 means 7 * 7 == 49 probe points
+leveling-strategy.delta-grid.do_home                      true
+leveling-strategy.delta-grid.probe_offsets                0,0,0           # probe offsets x,y,z
+leveling-strategy.delta-grid.save                         true
+leveling-strategy.delta-grid.initial_height               65
 
 # ---- 626pilot strategy -----
-leveling-strategy.comprehensive-delta.enable              true
-comprehensive-delta.probe_bed_shape                       0                # 0 = circle, 1 = square
-comprehensive-delta.probe_smoothing                       5                # if your probe has repeatability issues, this will probe multiple times & take the average (default 1)
-comprehensive-delta.probe_priming                         1                # if your probe keeps "creeping down", this will run it the specified number of times to get it to settle
-comprehensive-delta.probe_acceleration                    100              # acceleration will be temporarily set to this during probing; original is restored later; 100 is a good value
-comprehensive-delta.probe_offset_x                        0                # distance between the probe and the nozzle
-comprehensive-delta.probe_offset_y                        0                #
-comprehensive-delta.probe_offset_z                        0                #
-comprehensive-delta.probe_ignore_bed_temp                 true             # Dont wait for bed temp to stabilize (ONLY use this if you DONT have a heated bed!)
+#leveling-strategy.comprehensive-delta.enable              true
+#comprehensive-delta.probe_bed_shape                       0                # 0 = circle, 1 = square
+#comprehensive-delta.probe_smoothing                       3                # if your probe has repeatability issues, this will probe multiple times & take the average (default 1)
+#comprehensive-delta.probe_priming                         1                # if your probe keeps "creeping down", this will run it the specified number of times to get it to settle
+#comprehensive-delta.probe_acceleration                    100              # acceleration will be temporarily set to this during probing; original is restored later; 100 is a good value
+#comprehensive-delta.probe_offset_x                        0                # distance between the probe and the nozzle
+#comprehensive-delta.probe_offset_y                        0                #
+#comprehensive-delta.probe_offset_z                        0                #
+#comprehensive-delta.probe_ignore_bed_temp                 true             # Dont wait for bed temp to stabilize (ONLY use this if you DONT have a heated bed!)
 
 # Optional Z probe, see http://smoothieware.org/zprobe
 # ---------------------------------------------------------------------
@@ -68,12 +68,12 @@ gamma_min_endstop                            nc               # normally 1.28. C
 zprobe.enable                                true             # set to true to enable a zprobe
 zprobe.probe_pin                             1.22!^           # pin probe is attached to if NC remove the !, default 1.29!^
 zprobe.slow_feedrate                         10               # mm/sec probe Feed rate
-zprobe.fast_feedrate                         100              # move feedrate
+zprobe.fast_feedrate                         70               # move feedrate
 zprobe.debounce_count                        0                # set if noisy 100
 zprobe.probe_radius                          140              # how far out from bed center to probe
-zprobe.probe_height                          15               # how high the probe has to be moved above trigger elevation so that it won't drag
+zprobe.probe_height                          10               # how high the probe has to be moved above trigger elevation so that it won't drag
 zprobe.decelerate_on_trigger                 true             # beneficial, unless your probe has no runout after it hits the trigger - in which case, set this to false
-zprobe.decelerate_runout                     2                # how many millimeters your probe can move past the trigger point; we'll abort any decel > this long
+zprobe.decelerate_runout                     1                # how many millimeters your probe can move past the trigger point; we'll abort any decel > this long
 
 
 # Speeds
@@ -98,10 +98,10 @@ gamma_steps_per_mm                           640              # Steps per mm for
 
 # Planner module configuration : Look-ahead and acceleration configuration
 # ---------------------------------------------------------------------
-acceleration                                 1500             # Acceleration in mm/second/second.
+acceleration                                 1000             # Acceleration in mm/second/second.
 acceleration_ticks_per_second                1000             # Number of times per second the speed is updated
 planner_queue_size                           32               # DO NOT CHANGE THIS UNLESS YOU KNOW EXACTLY WHAT YOUR ARE DOING
-junction_deviation                           0.01             # Similar to the old "max_jerk", in millimeters, see : https://github.com/grbl/grbl/blob/master/planner.c#L409
+junction_deviation                           0.05             # Similar to the old "max_jerk", in millimeters, see : https://github.com/grbl/grbl/blob/master/planner.c#L409
 
 
 # Endstops

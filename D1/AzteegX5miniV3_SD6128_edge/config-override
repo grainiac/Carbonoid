@@ -2,24 +2,25 @@
 ;Steps per unit:
 M92 X640.00000 Y640.00000 Z640.00000
 ;Acceleration mm/sec^2:
-M204 S1500.00000 Z0.00000
+M204 S1000.00000 
 ;X- Junction Deviation, Z- Z junction deviation, S - Minimum Planner speed mm/sec:
-M205 X0.01000 Z-1.00000 S0.00000
-;Max feedrates in mm/sec, XYZ cartesian, ABC actuator:
-M203 X500.00000 Y500.00000 Z500.00000 A156.00000 B156.00000 C156.00000
+M205 X0.05000 Z-1.00000 S0.00000
+;Max cartesian feedrates in mm/sec:
+M203 X500.00000 Y500.00000 Z500.00000
+;Max actuator feedrates in mm/sec:
+M203.1 X156.00000 Y156.00000 Z156.00000
 ;Optional arm solution specific settings:
-M665 A0.00000 B2.09489 C2.09489 D-1.59179 E-1.00130 F-2.51128 L368.05731
-M665 R158.39198
+M665 L367.5000 R160.6276
 ;WCS settings
 G54
 ;Digipot Motor currents:
 M907 X1.20000 Y1.20000 Z1.20000 E1.20000 
 ;Home offset (mm):
-M206 X0.00 Y0.00 Z51.72
+M206 X0.00 Y0.00 Z16.00
 ;Trim (mm):
-M666 X0.000 Y-0.081 Z-0.020
+M666 X-1.262 Y-0.278 Z-0.047
 ;Max Z
-M665 Z262.248
+M665 Z300.000
 ;E Steps per mm:
 M92 E3744.0000 P9677
 ;E Filament diameter:
@@ -41,6 +42,8 @@ M301 S1 P189.1000 I14.8290 D603.0000 X255.0000 Y255
 ;Max temperature setting:
 M143 S1 P300.0000
 ;Probe feedrates Slow/fast(K)/Return (mm/sec) max_z (mm) height (mm):
-M670 S10.00 K100.00 R0.00 Z312.50 H15.00
-;ABC=Shimming data; D=Shimming; E=Depth map enable; Z=Master enable
-M667 A-1.3858 B-1.5143 C-1.3157 D1 E1 Z1
+M670 S10.00 K70.00 R0.00 Z300.00 H10.00
+;Probe offsets:
+M565 X0.00000 Y0.00000 Z0.00000
+;Load saved grid
+M375
