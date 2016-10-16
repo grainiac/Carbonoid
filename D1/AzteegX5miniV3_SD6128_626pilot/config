@@ -17,13 +17,13 @@
 # The gamma tower height is used for all towers on delta robots
 # Rest of the tower config is below, under Endstops
 # ---------------------------------------------------------------------
-gamma_max                                    309.000
+gamma_max                                    287.350
 
 # Delta Geometry
 # ---------------------------------------------------------------------
 arm_solution                                 linear_delta     # default linear_delta, you can also try kossel
-arm_radius                                   158.750          # this is the horiontal distance from hinge to hinge when the effector is centered
-arm_length                                   367.500          # length of the delta arms (hopefully they're all the same!)
+arm_radius                                   170.00           # this is the horiontal distance from hinge to hinge when the effector is centered
+arm_length                                   367.50           # length of the delta arms (hopefully they're all the same!)
 
 
 # If you have a Z probe, you can select a calibration strategy here
@@ -98,7 +98,7 @@ gamma_steps_per_mm                           640              # Steps per mm for
 
 # Planner module configuration : Look-ahead and acceleration configuration
 # ---------------------------------------------------------------------
-acceleration                                 1000             # Acceleration in mm/second^2.
+acceleration                                 1500             # Acceleration in mm/second^2.
 acceleration_ticks_per_second                1000             # Number of times per second the speed is updated
 planner_queue_size                           32               # DO NOT CHANGE THIS UNLESS YOU KNOW EXACTLY WHAT YOUR ARE DOING
 junction_deviation                           0.01             # Similar to the old "max_jerk", in millimeters, see : https://github.com/grbl/grbl/blob/master/planner.c#L409
@@ -152,21 +152,21 @@ base_stepping_frequency                      100000           # Base frequency f
 alpha_step_pin                               2.1              # Pin for alpha stepper step signal
 alpha_dir_pin                                0.11             # Pin for alpha stepper direction
 alpha_en_pin                                 0.10             # Pin for alpha enable pin
-alpha_current                                1.2              # max current in ampere
+alpha_current                                1.5              # max current in ampere
 alpha_max_rate                               30000.0          # mm/min
 x_axis_max_speed                             30000.0          # mm/min cartesian max speed
 
 beta_step_pin                                2.2              # Pin for beta stepper step signal
 beta_dir_pin                                 0.20             # Pin for beta stepper direction
 beta_en_pin                                  0.19             # Pin for beta enable
-beta_current                                 1.2              # max current in ampere
+beta_current                                 1.5              # max current in ampere
 beta_max_rate                                30000.0          # mm/min
 y_axis_max_speed                             30000.0          # mm/min
 
 gamma_step_pin                               2.3              # Pin for gamma stepper step signal
 gamma_dir_pin                                0.22             # Pin for gamma stepper direction
 gamma_en_pin                                 0.21             # Pin for gamma enable
-gamma_current                                1.2              # max current in ampere
+gamma_current                                1.5              # max current in ampere
 gamma_max_rate                               30000.0          # mm/min
 z_axis_max_speed                             30000.0          # mm/min
 
@@ -220,9 +220,9 @@ temperature_control.bed.set_m_code             140              #
 temperature_control.bed.set_and_wait_m_code    190              #
 temperature_control.bed.designator             B                #
 
-temperature_control.bed.p_factor               189.1            #
-temperature_control.bed.i_factor               14.829           #
-temperature_control.bed.d_factor               603              #
+temperature_control.bed.p_factor               162.9644         #
+temperature_control.bed.i_factor               14.079           #
+temperature_control.bed.d_factor               472              #
 temperature_control.bed.max_pwm                255              #
 
 # Switch module for fan control

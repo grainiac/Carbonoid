@@ -173,9 +173,10 @@ delta_current                                   1.2            # max current in 
 # ---------------------------------------------------------------------
 temperature_control.hotend.enable              true             # Whether to activate this ( "hotend" ) module at all. All configuration is ignored if false.
 temperature_control.hotend.sensor              thermistor       #
+temperature_control.hotend.thermistor          Semitec          # Use this OR beta value
 temperature_control.hotend.thermistor_pin      0.24             # Pin for the thermistor to read
 temperature_control.hotend.heater_pin          2.5              # Pin that controls the heater, set to nc if a readonly thermistor is being defined
-temperature_control.hotend.beta                3950             # or set the beta value
+#temperature_control.hotend.beta                3950             # or set the beta value
 temperature_control.hotend.set_m_code          104              #
 temperature_control.hotend.set_and_wait_m_code 109              #
 temperature_control.hotend.designator          T                #
@@ -183,9 +184,9 @@ temperature_control.hotend.max_temp            300              # Set maximum te
 
 # Hotend PID configuration
 # ---------------------------------------------------------------------
-temperature_control.hotend.p_factor            50.8             # permanently set the PID values after an auto pid
-temperature_control.hotend.i_factor            6.745            #
-temperature_control.hotend.d_factor            95               #
+temperature_control.hotend.p_factor            7.6              # permanently set the PID values after an auto pid
+temperature_control.hotend.i_factor            0.326            #
+temperature_control.hotend.d_factor            44               #
 temperature_control.hotend.max_pwm             255              # max pwm, 64 is a good value if driving a 12v resistor with 24v.
 
 # Heated bed PID configuration
@@ -234,7 +235,7 @@ temperatureswitch.hotend.cooldown_poll         60               # poll cooldown 
 
 # LCD Panel http://smoothieware.org/panel
 # ---------------------------------------------------------------------
-panel.enable                                 true
+panel.enable                                 false
 
 # Viki2 config for an Azteeg X5 mini V3 with IDC cable
 panel.lcd                                    viki2             # set type of panel
