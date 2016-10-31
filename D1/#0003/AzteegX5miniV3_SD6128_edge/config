@@ -319,7 +319,7 @@ custom_menu.move2.command                      G0_Z1_F2000       #
 
 custom_menu.save1.enable                       true              #
 custom_menu.save1.name                         Set_Z0            #
-custom_menu.save1.command                      M306_Z0|M500      #
+custom_menu.save1.command                      M306_Z0           #
 custom_menu.save2.enable                       true              #
 custom_menu.save2.name                         Save_config       #
 custom_menu.save2.command                      M500              #
@@ -349,6 +349,16 @@ custom_menu.mainfan1.command                   M42_S235          #
 custom_menu.mainfan2.enable                    true              #
 custom_menu.mainfan2.name                      Main_Fan_Off      #
 custom_menu.mainfan2.command                   M43               #
+
+custom_menu.probe1.enable                      true              #
+custom_menu.probe1.name                        Calibration       #
+custom_menu.probe1.command                     G32               #
+custom_menu.probe2.enable                      true              #
+custom_menu.probe2.name                        Probe_Grid        #
+custom_menu.probe2.command                     G31               #
+custom_menu.probe3.enable                      true              #
+custom_menu.probe3.name                        Save_Grid         #
+custom_menu.probe3.command                     M374|M500         #
 
 # Only needed on a smoothieboard and Azteeg X5 GT
 # ---------------------------------------------------------------------
