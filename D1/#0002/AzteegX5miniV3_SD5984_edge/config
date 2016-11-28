@@ -137,6 +137,7 @@ beta_homing_retract_mm                       5                # "
 gamma_homing_retract_mm                      5                # "
 
 # These can be used instead of adjusting the endstop screws
+# ---------------------------------------------------------------------
 alpha_trim                                   0                # software trim for alpha stepper endstop (in mm) - moves down
 beta_trim                                    0                # software trim for beta stepper endstop
 gamma_trim                                   0                # software trim for gamma stepper endstop
