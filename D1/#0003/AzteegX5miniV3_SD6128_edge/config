@@ -39,17 +39,17 @@ arm_length                                   368.0000         # length of the de
 # run once, then run grid compensation
 # --------------------------------------------------
 leveling-strategy.delta-calibration.enable                true            # basic delta calibration
-leveling-strategy.delta-calibration.radius                140             # the probe radius in mm
-leveling-strategy.delta-calibration.initial_height        65              # height above bed to stop initial move
+leveling-strategy.delta-calibration.radius                130             # the probe radius in mm
+leveling-strategy.delta-calibration.initial_height        60              # height above bed to stop initial move
 
 # ---- Smoothieware's grid compensation ----
 leveling-strategy.delta-grid.enable                       true
-leveling-strategy.delta-grid.radius                       140
+leveling-strategy.delta-grid.radius                       130
 leveling-strategy.delta-grid.size                         7               # must be odd, 7 means 7 * 7 == 49 probe points
 leveling-strategy.delta-grid.do_home                      true
 leveling-strategy.delta-grid.probe_offsets                0,0,0           # probe offsets x,y,z
 leveling-strategy.delta-grid.save                         true
-leveling-strategy.delta-grid.initial_height               105
+leveling-strategy.delta-grid.initial_height               60
 
 # ---- 626pilot strategy -----
 #leveling-strategy.comprehensive-delta.enable              true
@@ -70,7 +70,7 @@ zprobe.probe_pin                             1.22!^           # pin probe is att
 zprobe.slow_feedrate                         33               # mm/sec probe Feed rate
 zprobe.fast_feedrate                         66               # move feedrate
 zprobe.debounce_count                        0                # set if noisy 100
-zprobe.probe_radius                          140              # how far out from bed center to probe
+zprobe.probe_radius                          130              # how far out from bed center to probe
 zprobe.probe_height                          10               # how high the probe has to be moved above trigger elevation so that it won't drag
 zprobe.decelerate_on_trigger                 false            # beneficial, unless your probe has no runout after it hits the trigger - in which case, set this to false
 zprobe.decelerate_runout                     3                # how many millimeters your probe can move past the trigger point; we'll abort any decel > this long
@@ -98,7 +98,7 @@ gamma_steps_per_mm                           640              # Steps per mm for
 
 # Planner module configuration : Look-ahead and acceleration configuration
 # ---------------------------------------------------------------------
-acceleration                                 1500             # Acceleration in mm/second^2.
+acceleration                                 2400             # Acceleration in mm/second^2.
 acceleration_ticks_per_second                1000             # Number of times per second the speed is updated
 planner_queue_size                           32               # DO NOT CHANGE THIS UNLESS YOU KNOW EXACTLY WHAT YOUR ARE DOING
 junction_deviation                           0.01             # Similar to the old "max_jerk", in millimeters, see : https://github.com/grbl/grbl/blob/master/planner.c#L409
@@ -191,9 +191,10 @@ delta_current                                   1.0            # max current in 
 # ---------------------------------------------------------------------
 temperature_control.hotend.enable              true             # Whether to activate this ( "hotend" ) module at all. All configuration is ignored if false.
 temperature_control.hotend.sensor              thermistor       #
+temperature_control.hotend.thermistor          Semitec          #
 temperature_control.hotend.thermistor_pin      0.24             # Pin for the thermistor to read
 temperature_control.hotend.heater_pin          2.5              # Pin that controls the heater, set to nc if a readonly thermistor is being defined
-temperature_control.hotend.beta                3950             # or set the beta value
+#temperature_control.hotend.beta                3950             # or set the beta value
 temperature_control.hotend.set_m_code          104              #
 temperature_control.hotend.set_and_wait_m_code 109              #
 temperature_control.hotend.designator          T                #
@@ -201,9 +202,9 @@ temperature_control.hotend.max_temp            300              # Set maximum te
 
 # Hotend PID configuration
 # ---------------------------------------------------------------------
-temperature_control.hotend.p_factor            44.1             # permanently set the PID values after an auto pid
-temperature_control.hotend.i_factor            4.455            #
-temperature_control.hotend.d_factor            109              #
+temperature_control.hotend.p_factor            36.0             # permanently set the PID values after an auto pid
+temperature_control.hotend.i_factor            2.563            #
+temperature_control.hotend.d_factor            126              #
 temperature_control.hotend.max_pwm             255              # max pwm, 64 is a good value if driving a 12v resistor with 24v.
 
 # Heated bed PID configuration
