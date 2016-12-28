@@ -126,12 +126,12 @@ gamma_min                                    0                #
 
 # Homing
 # ---------------------------------------------------------------------
-alpha_fast_homing_rate_mm_s                  33               # feedrates in mm/second
-beta_fast_homing_rate_mm_s                   33               # "
-gamma_fast_homing_rate_mm_s                  33               # "
-alpha_slow_homing_rate_mm_s                  11               # "
-beta_slow_homing_rate_mm_s                   11               # "
-gamma_slow_homing_rate_mm_s                  11               # "
+alpha_fast_homing_rate_mm_s                  66               # feedrates in mm/second
+beta_fast_homing_rate_mm_s                   66               # "
+gamma_fast_homing_rate_mm_s                  66               # "
+alpha_slow_homing_rate_mm_s                  33               # "
+beta_slow_homing_rate_mm_s                   33               # "
+gamma_slow_homing_rate_mm_s                  33               # "
 alpha_homing_retract_mm                      5                # distance in mm
 beta_homing_retract_mm                       5                # "
 gamma_homing_retract_mm                      5                # "
@@ -174,9 +174,9 @@ z_axis_max_speed                             30000.0          # mm/min
 # Extruder module configuration
 # ---------------------------------------------------------------------
 extruder.BondtechQR.enable                      true           # Whether to activate the extruder module at all. All configuration is ignored if false
-extruder.BondtechQR.steps_per_mm                3744           # TMC2100 -> 468 / RAPS128 -> 3680 / DRV8825 -> 916  # Steps per mm for extruder stepper
-extruder.BondtechQR.default_feed_rate           4800           # Default rate ( mm/minute ) for moves where only the extruder moves
-extruder.BondtechQR.acceleration                2000           # Acceleration for the stepper motor, as of 0.6, arbitrary ratio
+extruder.BondtechQR.steps_per_mm                936            # TMC2100 -> 468 / RAPS128 -> 3680 / DRV8825 -> 916  # Steps per mm for extruder stepper
+extruder.BondtechQR.default_feed_rate           3000           # Default rate ( mm/minute ) for moves where only the extruder moves
+extruder.BondtechQR.acceleration                2400           # Acceleration for the stepper motor, as of 0.6, arbitrary ratio
 extruder.BondtechQR.max_speed                   50             # mm/s
 
 extruder.BondtechQR.step_pin                    2.0            # Pin for extruder step signal
@@ -221,9 +221,9 @@ temperature_control.bed.set_m_code             140              #
 temperature_control.bed.set_and_wait_m_code    190              #
 temperature_control.bed.designator             B                #
 
-temperature_control.bed.p_factor               162.9644         #
-temperature_control.bed.i_factor               14.079           #
-temperature_control.bed.d_factor               472              #
+temperature_control.bed.p_factor               157.100          #
+temperature_control.bed.i_factor               12.825           #
+temperature_control.bed.d_factor               481              #
 temperature_control.bed.max_pwm                255              #
 
 # Switch module for fan control

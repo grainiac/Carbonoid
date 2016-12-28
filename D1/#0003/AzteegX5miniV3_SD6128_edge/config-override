@@ -2,7 +2,7 @@
 ;Steps per unit:
 M92 X640.00000 Y640.00000 Z640.00000 
 ;Acceleration mm/sec^2:
-M204 S1500.00000 
+M204 S2400.00000 
 ;X- Junction Deviation, Z- Z junction deviation, S - Minimum Planner speed mm/sec:
 M205 X0.01000 Z-1.00000 S0.00000
 ;Max cartesian feedrates in mm/sec:
@@ -16,13 +16,13 @@ G54
 ;Digipot Motor currents:
 M907 X1.50000 Y1.50000 Z1.50000 A1.00000 
 ;Home offset (mm):
-M206 X0.00 Y0.00 Z3.19 
+M206 X0.00 Y0.00 Z2.71 
 ;Trim (mm):
 M666 X-2.097 Y-1.393 Z-0.137
 ;Max Z
 M665 Z288.750
 ;E Steps per mm:
-M92 E3744.0000 P9677
+M92 E936.0000 P9677
 ;E Filament diameter:
 M200 D0.0000 P9677
 ;E retract length, feedrate:
@@ -30,7 +30,7 @@ M207 S3.0000 F2700.0000 Z0.0000 Q6000.0000 P9677
 ;E retract recover length, feedrate:
 M208 S0.0000 F480.0000 P9677
 ;E acceleration mm/sec²:
-M204 E2000.0000 P9677
+M204 E2400.0000 P9677
 ;E max feed rate mm/sec:
 M203 E50.0000 P9677
 ;PID settings:
@@ -38,7 +38,7 @@ M301 S0 P36.0000 I2.5630 D126.0000 X255.0000 Y255
 ;Max temperature setting:
 M143 S0 P300.0000
 ;PID settings:
-M301 S1 P162.9644 I14.0790 D472.0000 X255.0000 Y255
+M301 S1 P157.1046 I12.8249 D481.1329 X255.0000 Y255
 ;Max temperature setting:
 M143 S1 P300.0000
 ;Probe feedrates Slow/fast(K)/Return (mm/sec) max_z (mm) height (mm):
