@@ -10,13 +10,13 @@ M203 X500.00000 Y500.00000 Z500.00000
 ;Max actuator feedrates in mm/sec:
 M203.1 X312.00000 Y312.00000 Z312.00000 
 ;Optional arm solution specific settings:
-M665 L366.5000 R169.0260
+M665 L366.5000 R168.5835
 ;WCS settings
 G54
 ;Home offset (mm):
-M206 X0.00 Y0.00 Z0.00 
+M206 X0.00 Y0.00 Z10.82 
 ;Trim (mm):
-M666 X0.000 Y-0.020 Z-0.329
+M666 X-0.278 Y-0.051 Z-0.642
 ;Max Z
 M665 Z280.000
 ;E Steps per mm:
@@ -32,7 +32,7 @@ M204 E2000.0000 P9677
 ;E max feed rate mm/sec:
 M203 E50.0000 P9677
 ;PID settings:
-M301 S0 P38.7876 I4.2275 D88.9691 X255.0000 Y255
+M301 S0 P38.8000 I4.2280 D89.0000 X255.0000 Y255
 ;Max temperature setting:
 M143 S0 P300.0000
 ;PID settings:
