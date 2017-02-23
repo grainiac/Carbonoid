@@ -370,17 +370,17 @@ digipot_factor                               113.5               # factor for co
 # Serial communications configuration ( baud rate default to 9600 if undefined )
 # ---------------------------------------------------------------------
 uart0.baud_rate                              115200           # Baud rate for the default hardware serial port
-second_usb_serial_enable                     false            # This enables a second usb serial port (to have both pronterface and a terminal connected)
+second_usb_serial_enable                     true             # This enables a second usb serial port (to have both pronterface and a terminal connected)
 
 # network settings
 # ---------------------------------------------------------------------
-network.enable                               false            # enable the ethernet network services
+network.enable                               true             # enable the ethernet network services
 network.webserver.enable                     true             # enable the webserver
 network.telnet.enable                        true             # enable the telnet server
 network.plan9.enable                         true             # enable the plan9 network filesystem
-network.ip_address                           10.11.12.124     # the IP address or auto (DHCP)
+network.ip_address                           10.11.12.44      # the IP address or auto (DHCP)
 network.ip_mask                              255.255.255.0    # the ip mask
-network.ip_gateway                           10.11.12.1       # the gateway address
+network.ip_gateway                           10.11.12.39      # the gateway address
 
 # kill button (used to be called pause) maybe assigned to a different pin, set to the onboard pin by default
 # ---------------------------------------------------------------------
