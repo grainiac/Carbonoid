@@ -1,4 +1,4 @@
-# Robot module configurations : general handling of movement G-codes and slicing into moves
+
 # By 626Pilot of the SeeMeCNC forums, based on mhackney's default file & reorganized for quicker editing
 # Thanks to Polygonhell and Flateric for the help!
 
@@ -216,6 +216,7 @@ temperature_control.bed.thermistor             EPCOS100K        # see http://smo
 temperature_control.bed.set_m_code             140              #
 temperature_control.bed.set_and_wait_m_code    190              #
 temperature_control.bed.designator             B                #
+temperature_control.bed.max_temp               130              # Set maximum temperature
 
 temperature_control.bed.p_factor               209.4            #
 temperature_control.bed.i_factor               27.020           #
