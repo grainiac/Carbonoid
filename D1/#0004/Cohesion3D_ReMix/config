@@ -1,4 +1,4 @@
-
+# Robot module configurations : general handling of movement G-codes and slicing into moves
 # By 626Pilot of the SeeMeCNC forums, based on mhackney's default file & reorganized for quicker editing
 # Thanks to Polygonhell and Flateric for the help!
 
@@ -81,9 +81,9 @@ delta_segments_per_second                    100              # segments per sec
 # Arm solution configuration : Delta robot. Translates mm positions into stepper positions
 # This is for an old Rostock MAX with 15-teeth pullies. Use a belt/pulley calculator to find the values for your machine
 # ---------------------------------------------------------------------
-alpha_steps_per_mm                           320              # Steps per mm for alpha stepper
-beta_steps_per_mm                            320              # Steps per mm for beta stepper
-gamma_steps_per_mm                           320              # Steps per mm for gamma stepper
+alpha_steps_per_mm                           160              # Steps per mm for alpha stepper
+beta_steps_per_mm                            160              # Steps per mm for beta stepper
+gamma_steps_per_mm                           160              # Steps per mm for gamma stepper
 
 
 # Planner module configuration : Look-ahead and acceleration configuration
@@ -160,10 +160,10 @@ z_axis_max_speed                             30000.0          # mm/min
 # 1st extruder module configuration
 # ---------------------------------------------------------------------
 extruder.BondtechQRLeft.enable               true              # Whether to activate the extruder module at all. All configuration is ignored if false
-extruder.BondtechQRLeft.steps_per_mm         935               # TMC2100 -> 468 / RAPS128 -> 3680 / DRV8825 -> 916  # Steps per mm for extruder stepper
-extruder.BondtechQRLeft.default_feed_rate    4800              # Default rate ( mm/minute ) for moves where only the extruder moves
-extruder.BondtechQRLeft.acceleration         2000              # Acceleration for the stepper motor, as of 0.6, arbitrary ratio
-extruder.BondtechQRLeft.max_speed            50                # mm/s
+extruder.BondtechQRLeft.steps_per_mm         466               # TMC2208 -> 466 / TMC2100 -> 468 / RAPS128 -> 3680 / DRV8825 -> 916  # Steps per mm for extruder stepper
+extruder.BondtechQRLeft.default_feed_rate    1200              # Default rate ( mm/minute ) for moves where only the extruder moves
+extruder.BondtechQRLeft.acceleration         3600              # Acceleration for the stepper motor, as of 0.6, arbitrary ratio
+extruder.BondtechQRLeft.max_speed            20                # mm/s
 
 extruder.BondtechQRLeft.step_pin             2.3               # Pin for extruder step signal
 extruder.BondtechQRLeft.dir_pin              0.22              # Pin for extruder dir signal
@@ -173,10 +173,10 @@ delta_current                                1.2               # 1st extruder st
 # 2nd extruder module configuration
 # ---------------------------------------------------------------------
 extruder.BondtechQRRight.enable              true              # Whether to activate the extruder module at all. All configuration is ignored if false
-extruder.BondtechQRRight.steps_per_mm        935               # TMC2100 -> 468 / RAPS128 -> 3680 / DRV8825 -> 916  # Steps per mm for extruder stepper
-extruder.BondtechQRRight.default_feed_rate   4800              # Default rate ( mm/minute ) for moves where only the extruder moves
-extruder.BondtechQRRight.acceleration        2000              # Acceleration for the stepper motor, as of 0.6, arbitrary ratio
-extruder.BondtechQRRight.max_speed           50                # mm/s
+extruder.BondtechQRRight.steps_per_mm        466               # TMC2208 -> 466 / TMC2100 -> 468 / RAPS128 -> 3680 / DRV8825 -> 916  # Steps per mm for extruder stepper
+extruder.BondtechQRRight.default_feed_rate   1200              # Default rate ( mm/minute ) for moves where only the extruder moves
+extruder.BondtechQRRight.acceleration        3600              # Acceleration for the stepper motor, as of 0.6, arbitrary ratio
+extruder.BondtechQRRight.max_speed           20                # mm/s
 
 extruder.BondtechQRRight.step_pin            2.8               # Pin for extruder step signal
 extruder.BondtechQRRight.dir_pin             2.13!             # Pin for extruder dir signal
