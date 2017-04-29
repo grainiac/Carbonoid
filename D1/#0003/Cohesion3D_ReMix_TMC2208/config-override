@@ -1,14 +1,0 @@
-;SpÊàæ@àÊä@êÜÒètšrd@°p`\`````@²p`\`````@´p`\`````v‚ÆÆÊØÊäÂèÒÞÜ@ÚÚ^æÊÆ¼dtšd`h@¦dh``\`````@v°Z@”êÜÆèÒÞÜ@ˆÊìÒÂèÒÞÜX@´Z@´@ÔêÜÆèÒÞÜ@ÈÊìÒÂèÒÞÜX@¦@Z@šÒÜÒÚêÚ@ ØÂÜÜÊä@æàÊÊÈ@ÚÚ^æÊÆtšd`j@°`\`b```@´Zb\`````@¦`\`````všÂð@ÆÂäèÊæÒÂÜ@ÌÊÊÈäÂèÊæ@ÒÜ@ÚÚ^æÊÆtšd`f@°j``\`````@²j``\`````@´j``\`````všÂð@ÂÆèêÂèÞä@ÌÊÊÈäÂèÊæ@ÒÜ@ÚÚ^æÊÆtšd`f\b@°j``\`````@²j``\`````@´j``\`````vžàèÒÞÜÂØ@ÂäÚ@æÞØêèÒÞÜ@æàÊÆÒÌÒÆ@æÊèèÒÜÎætšllj@˜fll\j``` R169.4584
-;WCS settings
-G54
-;Home offset (mm):
-M206 X0.00 Y0.00 Z4.95
-;Trim (mm):
-M666 X-1.096 Y-0dllh´À¸ÔÌÈ(í5…àh)4ØØÔhÈàÜ¸ÔÀÀ(íMÑ•ÁÌÁ•Èµ´è)4äÈÐØØ¸ÀÀÀÀ@ØÔÄÄÐ(vŠ@ŒÒØÂÚÊÜè@ÈÒÂÚÊèÊätšd``@ˆ`\````@ ljbbhvŠ@äÊèäÂÆè@ØÊÜÎèÐX@ÌÊÊÈäÂèÊtšd`n@¦f\````@Œdn``\````@´`\````@¢l```\````@ ljbbhvŠ@äÊèäÂÆè@äÊÆÞìÊä@ØÊÜÎèÐX@ÌÊÊÈäÂèÊtšd`p@¦`\````@Œhp`\````@ ljbbhvŠ@ÂÆÆÊØÊäÂèÒÞÜ@ÚÚ^æÊÇ…dtšd`h@Šfl``\````@ ljbbhvŠ@ÚÂð@ÌÊÊÈ@äÂèÊ@ÚÚ^æÊÆtšd`f@Šd`\````@ ljbbhvŠ@¦èÊàæ@àÊä@ÚÚtšrd@Šhll\````@ jr`pj;E Filament diameter:
-M200 D0.0000 P59085
-;E retract length, feedrate:
-M207 S3.0000 F2700.0000 Z0.0000 Q6000.0000 P5900j wÉ•ÑÉ…ÐÉ•½Ù•È±•¹Ñ °™••‘É…Ñ”è)4ÈÀàLÀ¸ÀÀÀÀÐàÀ¸ÀÀÀÀ@ÔäÀàÔ(í…•±•É…Ñ¥½¸µ´½Í•
-Èè)4ÈÀÐÌØÀÀ¸ÀÀÀÀ@ÔäÀàÔvŠ@ÚÂð@ÌÊÊÈ@äÂèÊ@ÚÚ^æÊÆtšd`f@Šd`\````@ jr`pjv ’ˆ@æÊèèÒÜÎætšf`b@¦`@ fp\p```@’h\ddp`@ˆpr\````@°djj\````@²djjí5…àÑ•µÁ•É…ÑÕÉ”Í•ÑÑ¥¹œè)4ÄÐÌLÀ@ÌÀÀ¸ÀÀÀÀ(íA%Í•ÑÑ¥¹Ìè)4ÌÀÄLÄ@ÈÀä¸ÐÀÀÀ$ÈÜ¸ÀÈÀÀÐÀØ¸ÀÀÀÀ`ÈÔÔ¸ÀÀÀÀdÈÔÔ(všÂð@èÊÚàÊäÂèêäÊ@æÊèèÒÜÎtšbhf@¦b@ bf`\````v äÞÄÊ@ÌÊÊÈäÂèÊæ@¦ØÞî^ÌÂæèP–R^¤ÊèêäÜ@PÚÚ^æÊÆR@ÚÂð¾ô@PÚÚR@ÐÊÒÎÐè@PÚÚRtšln`@¦bb\``@–j`\``@¤ff\``@´dpn\j`@bj\``;Probe offsets:
-M565 X0.00000 Y0.00000 Z0.00000
-;Load saved grid
-M375
