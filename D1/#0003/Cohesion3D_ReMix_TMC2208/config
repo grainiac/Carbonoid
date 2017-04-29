@@ -88,7 +88,7 @@ gamma_steps_per_mm                           160              # Steps per mm for
 
 # Planner module configuration : Look-ahead and acceleration configuration
 # ---------------------------------------------------------------------
-acceleration                                 2400             # Acceleration in mm/second*second.
+acceleration                                 1500             # Acceleration in mm/second*second.
 acceleration_ticks_per_second                1000             # Number of times per second the speed is updated
 planner_queue_size                           32               # DO NOT CHANGE THIS UNLESS YOU KNOW EXACTLY WHAT YOUR ARE DOING
 junction_deviation                           0.01             # Similar to the old "max_jerk", in millimeters, see : https://github.com/grbl/grbl/blob/master/planner.c#L409
@@ -161,9 +161,9 @@ z_axis_max_speed                             30000.0          # mm/min
 # ---------------------------------------------------------------------
 extruder.BondtechQRLeft.enable               true              # Whether to activate the extruder module at all. All configuration is ignored if false
 extruder.BondtechQRLeft.steps_per_mm         466               # TMC2208 -> 466 / TMC2100 -> 468 / RAPS128 -> 3680 / DRV8825 -> 916  # Steps per mm for extruder stepper
-extruder.BondtechQRLeft.default_feed_rate    1200              # Default rate ( mm/minute ) for moves where only the extruder moves
-extruder.BondtechQRLeft.acceleration         3600              # Acceleration for the stepper motor, as of 0.6, arbitrary ratio
-extruder.BondtechQRLeft.max_speed            20                # mm/s
+extruder.BondtechQRLeft.default_feed_rate    300               # Default rate ( mm/minute ) for moves where only the extruder moves
+extruder.BondtechQRLeft.acceleration         2000              # Acceleration for the stepper motor, as of 0.6, arbitrary ratio
+extruder.BondtechQRLeft.max_speed            50                # mm/s
 
 extruder.BondtechQRLeft.step_pin             2.3               # Pin for extruder step signal
 extruder.BondtechQRLeft.dir_pin              0.22              # Pin for extruder dir signal
@@ -174,9 +174,9 @@ delta_current                                1.0               # 1st extruder st
 # ---------------------------------------------------------------------
 extruder.BondtechQRRight.enable              true              # Whether to activate the extruder module at all. All configuration is ignored if false
 extruder.BondtechQRRight.steps_per_mm        466               # TMC2208 -> 466 / TMC2100 -> 468 / RAPS128 -> 3680 / DRV8825 -> 916  # Steps per mm for extruder stepper
-extruder.BondtechQRRight.default_feed_rate   1200              # Default rate ( mm/minute ) for moves where only the extruder moves
-extruder.BondtechQRRight.acceleration        3600              # Acceleration for the stepper motor, as of 0.6, arbitrary ratio
-extruder.BondtechQRRight.max_speed           20                # mm/s
+extruder.BondtechQRRight.default_feed_rate   300               # Default rate ( mm/minute ) for moves where only the extruder moves
+extruder.BondtechQRRight.acceleration        2000              # Acceleration for the stepper motor, as of 0.6, arbitrary ratio
+extruder.BondtechQRRight.max_speed           50                # mm/s
 
 extruder.BondtechQRRight.step_pin            2.8               # Pin for extruder step signal
 extruder.BondtechQRRight.dir_pin             2.13!             # Pin for extruder dir signal
@@ -359,17 +359,16 @@ custom_menu.probe3.command                     M374|M500         #
 #digipot_max_current                          1.5                 # max current
 #digipot_factor                               113.5               # factor for converting current to digipot value
 
+
 # Serial communications configuration ( baud rate default to 9600 if undefined )
 # ---------------------------------------------------------------------
-uart0.baud_rate                              115200              # Baud rate for the default hardware serial port
-second_usb_serial_enable                     true                # This enables a second usb serial port (to have both pronterface and a terminal connected)
+uart0.baud_rate                              115200               # Baud rate for the default hardware serial port
+second_usb_serial_enable                     true                 # This enables a second usb serial port (to have both pronterface and a terminal connected)
+
 
 # network settings
 # ---------------------------------------------------------------------
-network.enable                               false               # enable the ethernet network services
+network.enable                               false                # enable the ethernet network services
 network.webserver.enable                     false                # enable the webserver
 network.telnet.enable                        false                # enable the telnet server
 network.plan9.enable                         false                # enable the plan9 network filesystem
-network.ip_address                           10.11.12.124        # the IP address or auto (DHCP)
-network.ip_mask                              255.255.255.0       # the ip mask
-network.ip_gateway                           10.11.12.1          # the gateway address
