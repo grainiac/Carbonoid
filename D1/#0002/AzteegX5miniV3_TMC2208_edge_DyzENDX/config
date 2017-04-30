@@ -51,16 +51,6 @@ leveling-strategy.delta-grid.probe_offsets                0,0,0           # prob
 leveling-strategy.delta-grid.save                         true
 leveling-strategy.delta-grid.initial_height               105
 
-# ---- 626pilot strategy -----
-#leveling-strategy.comprehensive-delta.enable              true
-#comprehensive-delta.probe_bed_shape                       0                # 0 = circle, 1 = square
-#comprehensive-delta.probe_smoothing                       5                # if your probe has repeatability issues, this will probe multiple times & take the average (default 1)
-#comprehensive-delta.probe_priming                         1                # if your probe keeps "creeping down", this will run it the specified number of times to get it to settle
-#comprehensive-delta.probe_acceleration                    100              # acceleration will be temporarily set to this during probing; original is restored later; 100 is a good value
-#comprehensive-delta.probe_offset_x                        0                # distance between the probe and the nozzle
-#comprehensive-delta.probe_offset_y                        0                #
-#comprehensive-delta.probe_offset_z                        0                #
-#comprehensive-delta.probe_ignore_bed_temp                 true             # Dont wait for bed temp to stabilize (ONLY use this if you DONT have a heated bed!)
 
 # Optional Z probe, see http://smoothieware.org/zprobe
 # ---------------------------------------------------------------------
@@ -153,31 +143,31 @@ alpha_step_pin                               2.1              # Pin for alpha st
 alpha_dir_pin                                0.11             # Pin for alpha stepper direction
 alpha_en_pin                                 0.10             # Pin for alpha enable pin
 alpha_current                                1.25             # max current in ampere
-alpha_max_rate                               30000.0          # mm/min
-x_axis_max_speed                             30000.0          # mm/min cartesian max speed
+alpha_max_rate                               12000.0          # mm/min
+x_axis_max_speed                             12000.0          # mm/min cartesian max speed
 
 beta_step_pin                                2.2              # Pin for beta stepper step signal
 beta_dir_pin                                 0.20             # Pin for beta stepper direction
 beta_en_pin                                  0.19             # Pin for beta enable
 beta_current                                 1.25             # max current in ampere
-beta_max_rate                                30000.0          # mm/min
-y_axis_max_speed                             30000.0          # mm/min
+beta_max_rate                                12000.0          # mm/min
+y_axis_max_speed                             12000.0          # mm/min
 
 gamma_step_pin                               2.3              # Pin for gamma stepper step signal
 gamma_dir_pin                                0.22             # Pin for gamma stepper direction
 gamma_en_pin                                 0.21             # Pin for gamma enable
 gamma_current                                1.25              # max current in ampere
-gamma_max_rate                               30000.0          # mm/min
-z_axis_max_speed                             30000.0          # mm/min
+gamma_max_rate                               12000.0          # mm/min
+z_axis_max_speed                             12000.0          # mm/min
 
 
 # Extruder module configuration
 # ---------------------------------------------------------------------
 extruder.BondtechQR.enable                      true           # Whether to activate the extruder module at all. All configuration is ignored if false
 extruder.BondtechQR.steps_per_mm                466            # TMC2100 -> 468 / RAPS128 -> 3680 / DRV8825 -> 916  # Steps per mm for extruder stepper
-extruder.BondtechQR.default_feed_rate           1200           # Default rate ( mm/minute ) for moves where only the extruder moves
-extruder.BondtechQR.acceleration                3600           # Acceleration for the stepper motor, as of 0.6, arbitrary ratio
-extruder.BondtechQR.max_speed                   20             # mm/s
+extruder.BondtechQR.default_feed_rate           300           # Default rate ( mm/minute ) for moves where only the extruder moves
+extruder.BondtechQR.acceleration                2000           # Acceleration for the stepper motor, as of 0.6, arbitrary ratio
+extruder.BondtechQR.max_speed                   50             # mm/s
 
 extruder.BondtechQR.step_pin                    2.0            # Pin for extruder step signal
 extruder.BondtechQR.dir_pin                     0.5            # Pin for extruder dir signal
@@ -274,18 +264,6 @@ panel.buzz_pin                               0.25              # pin for buzzer 
 panel.blue_led_pin                           4.29              # pin for blue led on viki2 on EXP1
 panel.red_led_pin                            2.8               # pin for red led on viki2 on EXP1
 
-# mini Viki config for an Azteeg X5 mini V3 with IDC cable
-#panel.lcd                                    mini_viki2        # set type of panel
-#panel.spi_channel                            0                 # set spi channel to use P0_18,P0_15 MOSI,SCLK
-#panel.spi_cs_pin                             0.16              # set spi chip select
-#panel.encoder_a_pin                          3.25!^            # encoder pin
-#panel.encoder_b_pin                          3.26!^            # encoder pin
-#panel.click_button_pin                       2.11!^            # click button
-#panel.a0_pin                                 2.6               # st7565 needs an a0
-#panel.contrast                               4                 # override contrast setting (default is 9) miniViki (4 or lower)
-#panel.encoder_resolution                     1                 # override number of clicks to move 1 item (default is 2)
-#panel.menu_offset                            1                 # here controls how sensitive the menu is. some panels will need 1
-
 panel.external_sd                            true              # set to true if there is an extrernal sdcard on the panel
 panel.external_sd.spi_channel                0                 # set spi channel the sdcard is on
 panel.external_sd.spi_cs_pin                 1.23              # set spi chip select for the sdcard
@@ -295,8 +273,8 @@ panel.alpha_jog_feedrate                     2000              # x jogging feedr
 panel.beta_jog_feedrate                      2000              # y jogging feedrate in mm/min
 panel.gamma_jog_feedrate                     2000              # z jogging feedrate in mm/min
 
-panel.hotend_temperature                     220               # temp to set hotend when preheat is selected
-panel.bed_temperature                        70                # temp to set bed when preheat is selected
+panel.hotend_temperature                     200               # temp to set hotend when preheat is selected
+panel.bed_temperature                        60                # temp to set bed when preheat is selected
 
 # Custom menu entries.
 # ---------------------------------------------------------------------
@@ -322,7 +300,7 @@ custom_menu.move2.command                      G0_Z1_F2000       #
 
 custom_menu.save1.enable                       true              #
 custom_menu.save1.name                         Set_Z0            #
-custom_menu.save1.command                      M306_Z0           #
+custom_menu.save1.command                      M306_Z0|M500      #
 custom_menu.save2.enable                       true              #
 custom_menu.save2.name                         Save_config       #
 custom_menu.save2.command                      M500              #
@@ -376,13 +354,10 @@ second_usb_serial_enable                     true             # This enables a s
 
 # network settings
 # ---------------------------------------------------------------------
-network.enable                               true            # enable the ethernet network services
-network.webserver.enable                     true            # enable the webserver
-network.telnet.enable                        true            # enable the telnet server
-network.plan9.enable                         true            # enable the plan9 network filesystem
-network.ip_address                           10.11.12.43     # the IP address or auto (DHCP)
-network.ip_mask                              255.255.255.0   # the ip mask
-network.ip_gateway                           10.11.12.40     # the gateway address
+network.enable                               false            # enable the ethernet network services
+network.webserver.enable                     false            # enable the webserver
+network.telnet.enable                        false            # enable the telnet server
+network.plan9.enable                         false            # enable the plan9 network filesystem
 
 # kill button (used to be called pause) maybe assigned to a different pin, set to the onboard pin by default
 # ---------------------------------------------------------------------

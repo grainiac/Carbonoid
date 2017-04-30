@@ -6,9 +6,9 @@ M204 S2000.00000
 ;X- Junction Deviation, Z- Z junction deviation, S - Minimum Planner speed mm/sec:
 M205 X0.01000 Z-1.00000 S0.00000
 ;Max cartesian feedrates in mm/sec:
-M203 X500.00000 Y500.00000 Z500.00000
+M203 X12000.00000 Y12000.00000 Z12000.00000
 ;Max actuator feedrates in mm/sec:
-M203.1 X500.00000 Y500.00000 Z500.00000
+M203.1 X12000.00000 Y12000.00000 Z12000.00000
 ;Optional arm solution specific settings:
 M665 L386.0000 R168.8490
 ;WCS settings
@@ -16,7 +16,7 @@ G54
 ;Digipot Motor currents:
 M907 X1.25000 Y1.25000 Z1.25000 E1.00000 
 ;Home offset (mm):
-M206 X0.00 Y0.00 Z6.82
+M206 X0.00 Y0.00 Z7.08
 ;Trim (mm):
 M666 X-0.266 Y-0.313 Z-0.047
 ;Max Z
@@ -30,9 +30,9 @@ M207 S3.0000 F2700.0000 Z0.0000 Q6000.0000 P9677
 ;E retract recover length, feedrate:
 M208 S0.0000 F480.0000 P9677
 ;E acceleration mm/sec²:
-M204 E3600.0000 P9677
+M204 E2000.0000 P9677
 ;E max feed rate mm/sec:
-M203 E20.0000 P9677
+M203 E50.0000 P9677
 ;PID settings:
 M301 S0 P24.4000 I1.4970 D100.0000 X255.0000 Y255
 ;Max temperature setting:

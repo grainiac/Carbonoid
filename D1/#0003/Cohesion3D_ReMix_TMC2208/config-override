@@ -2,13 +2,13 @@
 ;Steps per unit:
 M92 X160.00000 Y160.00000 Z160.00000
 ;Acceleration mm/sec^2:
-M204 S1500.00000 
+M204 S2000.00000 
 ;X- Junction Deviation, Z- Z junction deviation, S - Minimum Planner speed mm/sec:
 M205 X0.01000 Z-1.00000 S0.00000
 ;Max cartesian feedrates in mm/sec:
-M203 X2000.00000 Y2000.00000 Z2000.00000
+M203 X200.00000 Y200.00000 Z200.00000
 ;Max actuator feedrates in mm/sec:
-M203.1 X2000.00000 Y2000.00000 Z2000.00000
+M203.1 X200.00000 Y200.00000 Z200.00000
 ;Optional arm solution specific settings:
 M665 L366.5000 R168.2761
 ;WCS settings

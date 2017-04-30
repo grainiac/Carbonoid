@@ -88,7 +88,7 @@ gamma_steps_per_mm                           160              # Steps per mm for
 
 # Planner module configuration : Look-ahead and acceleration configuration
 # ---------------------------------------------------------------------
-acceleration                                 1500             # Acceleration in mm/second*second.
+acceleration                                 2000             # Acceleration in mm/second*second.
 acceleration_ticks_per_second                1000             # Number of times per second the speed is updated
 planner_queue_size                           32               # DO NOT CHANGE THIS UNLESS YOU KNOW EXACTLY WHAT YOUR ARE DOING
 junction_deviation                           0.01             # Similar to the old "max_jerk", in millimeters, see : https://github.com/grbl/grbl/blob/master/planner.c#L409
@@ -139,22 +139,22 @@ alpha_step_pin                               2.0              # Pin for alpha st
 alpha_dir_pin                                0.5             # Pin for alpha stepper direction
 alpha_en_pin                                 0.4             # Pin for alpha enable pin
 alpha_current                                1.0              # X stepper motor current
-alpha_max_rate                               30000.0          # mm/min
-x_axis_max_speed                             30000.0          # mm/min cartesian max speed
+alpha_max_rate                               12000.0          # mm/min
+x_axis_max_speed                             12000.0          # mm/min cartesian max speed
 
 beta_step_pin                                2.1              # Pin for beta stepper step signal
 beta_dir_pin                                 0.11             # Pin for beta stepper direction
 beta_en_pin                                  0.10             # Pin for beta enable
 beta_current                                 1.0              # Y stepper motor current
-beta_max_rate                                30000.0          # mm/min
-y_axis_max_speed                             30000.0          # mm/min
+beta_max_rate                                12000.0          # mm/min
+y_axis_max_speed                             12000.0          # mm/min
 
 gamma_step_pin                               2.2              # Pin for gamma stepper step signal
 gamma_dir_pin                                0.20              # Pin for gamma stepper direction
 gamma_en_pin                                 0.19              # Pin for gamma enable
 gamma_current                                1.0              # Z stepper motor current
-gamma_max_rate                               30000.0          # mm/min
-z_axis_max_speed                             30000.0          # mm/min
+gamma_max_rate                               12000.0          # mm/min
+z_axis_max_speed                             12000.0          # mm/min
 
 
 # 1st extruder module configuration
