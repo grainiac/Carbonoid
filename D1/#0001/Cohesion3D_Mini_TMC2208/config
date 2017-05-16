@@ -17,14 +17,14 @@
 # The gamma tower height is used for all towers on delta robots
 # Rest of the tower config is below, under Endstops
 # ---------------------------------------------------------------------
-gamma_max 235                                                    # max build height in mm (z)
+gamma_max 180                                                    # max build height in mm (z)
 
 
 # Delta Geometry
 # ---------------------------------------------------------------------
 arm_solution                                   linear_delta      # default linear_delta, you can also try kossel
-arm_radius                                     167.50            # this is the horiontal distance from hinge to hinge when the effector is centered
-arm_length                                     313.50            # length of the delta arms (hopefully they're all the same!)
+arm_radius                                     170.00            # this is the horiontal distance from hinge to hinge when the effector is centered
+arm_length                                     366.50            # length of the delta arms (hopefully they're all the same!)
 
 
 # If you have a Z probe, you can select a calibration strategy here
@@ -40,7 +40,7 @@ arm_length                                     313.50            # length of the
 # run once, then run grid compensation
 # --------------------------------------------------
 leveling-strategy.delta-calibration.enable          true         # basic delta calibration
-leveling-strategy.delta-calibration.radius          120          # the probe radius in mm
+leveling-strategy.delta-calibration.radius          130          # the probe radius in mm
 leveling-strategy.delta-calibration.initial_height  65           # height above bed to stop initial move
 
 # ---- Smoothieware's grid compensation ----
@@ -207,6 +207,7 @@ temperature_control.bed.thermistor             EPCOS100K         # see http://sm
 temperature_control.bed.set_m_code             140               #
 temperature_control.bed.set_and_wait_m_code    190               #
 temperature_control.bed.designator             B                 #
+temperature_control.bed.max_temp               130               #
 
 # Heated bed PID configuration
 # temperature_control.bed.thermistor can be one of the following:
