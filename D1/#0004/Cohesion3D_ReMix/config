@@ -17,13 +17,13 @@
 # The gamma tower height is used for all towers on delta robots
 # Rest of the tower config is below, under Endstops
 # ---------------------------------------------------------------------
-gamma_max                                    287.50
+gamma_max                                    460.00
 
 # Delta Geometry
 # ---------------------------------------------------------------------
 arm_solution                                 linear_delta     # default linear_delta, you can also try kossel
 arm_radius                                   170.00           # this is the horiontal distance from hinge to hinge when the effector is centered
-arm_length                                   366.50           # length of the delta arms (hopefully they're all the same!)
+arm_length                                   386.00           # length of the delta arms (hopefully they're all the same!)
 
 
 # If you have a Z probe, you can select a calibration strategy here
@@ -39,28 +39,27 @@ arm_length                                   366.50           # length of the de
 # run once, then run grid compensation
 # --------------------------------------------------
 leveling-strategy.delta-calibration.enable                true            # basic delta calibration
-leveling-strategy.delta-calibration.radius                130             # the probe radius in mm
+leveling-strategy.delta-calibration.radius                140             # the probe radius in mm
 leveling-strategy.delta-calibration.initial_height        65              # height above bed to stop initial move
 
 # ---- Smoothieware's grid compensation ----
 leveling-strategy.delta-grid.enable                       true
-leveling-strategy.delta-grid.radius                       130
+leveling-strategy.delta-grid.radius                       140
 leveling-strategy.delta-grid.size                         7               # must be odd, 7 means 7 * 7 == 49 probe points
 leveling-strategy.delta-grid.do_home                      true
 leveling-strategy.delta-grid.probe_offsets                0,0,0           # probe offsets x,y,z
 leveling-strategy.delta-grid.save                         true
-leveling-strategy.delta-grid.initial_height               105 
+leveling-strategy.delta-grid.initial_height               65 
 
-# Optional Z probe, see http://smoothieware.org/zprobe
 # ---------------------------------------------------------------------
 gamma_min_endstop                            nc               # normally 1.28. Change to nc to prevent conflict, not needed on Azteeg X5
 zprobe.enable                                true             # set to true to enable a zprobe
 zprobe.probe_pin                             2.4^!            # pin probe is attached to if NC remove the !, default 1.29!^
 zprobe.slow_feedrate                         11               # mm/sec probe Feed rate
-zprobe.return_feedrate                       33
-zprobe.fast_feedrate                         50               # move feedrate
+zprobe.return_feedrate                       22
+zprobe.fast_feedrate                         66               # move feedrate
 zprobe.debounce_count                        0                # set if noisy 100
-zprobe.probe_radius                          130              # how far out from bed center to probe
+zprobe.probe_radius                          145              # how far out from bed center to probe
 zprobe.probe_height                          15               # how high the probe has to be moved above trigger elevation so that it won't drag
 zprobe.decelerate_on_trigger                 false            # beneficial, unless your probe has no runout after it hits the trigger - in which case, set this to false
 zprobe.decelerate_runout                     1                # how many millimeters your probe can move past the trigger point; we'll abort any decel > this long
@@ -88,7 +87,7 @@ gamma_steps_per_mm                           160              # Steps per mm for
 
 # Planner module configuration : Look-ahead and acceleration configuration
 # ---------------------------------------------------------------------
-acceleration                                 2400             # Acceleration in mm/second*second.
+acceleration                                 2000             # Acceleration in mm/second*second.
 acceleration_ticks_per_second                1000             # Number of times per second the speed is updated
 planner_queue_size                           32               # DO NOT CHANGE THIS UNLESS YOU KNOW EXACTLY WHAT YOUR ARE DOING
 junction_deviation                           0.01             # Similar to the old "max_jerk", in millimeters, see : https://github.com/grbl/grbl/blob/master/planner.c#L409
@@ -139,31 +138,31 @@ alpha_step_pin                               2.0              # Pin for alpha st
 alpha_dir_pin                                0.5             # Pin for alpha stepper direction
 alpha_en_pin                                 0.4             # Pin for alpha enable pin
 alpha_current                                1.0              # X stepper motor current
-alpha_max_rate                               30000.0          # mm/min
-x_axis_max_speed                             30000.0          # mm/min cartesian max speed
+alpha_max_rate                               12000.0          # mm/min
+x_axis_max_speed                             12000.0          # mm/min cartesian max speed
 
 beta_step_pin                                2.1              # Pin for beta stepper step signal
 beta_dir_pin                                 0.11             # Pin for beta stepper direction
 beta_en_pin                                  0.10             # Pin for beta enable
 beta_current                                 1.0              # Y stepper motor current
-beta_max_rate                                30000.0          # mm/min
-y_axis_max_speed                             30000.0          # mm/min
+beta_max_rate                                12000.0          # mm/min
+y_axis_max_speed                             12000.0          # mm/min
 
 gamma_step_pin                               2.2              # Pin for gamma stepper step signal
 gamma_dir_pin                                0.20              # Pin for gamma stepper direction
 gamma_en_pin                                 0.19              # Pin for gamma enable
 gamma_current                                1.0              # Z stepper motor current
-gamma_max_rate                               30000.0          # mm/min
-z_axis_max_speed                             30000.0          # mm/min
+gamma_max_rate                               12000.0          # mm/min
+z_axis_max_speed                             12000.0          # mm/min
 
 
 # 1st extruder module configuration
 # ---------------------------------------------------------------------
 extruder.BondtechQRLeft.enable               true              # Whether to activate the extruder module at all. All configuration is ignored if false
 extruder.BondtechQRLeft.steps_per_mm         466               # TMC2208 -> 466 / TMC2100 -> 468 / RAPS128 -> 3680 / DRV8825 -> 916  # Steps per mm for extruder stepper
-extruder.BondtechQRLeft.default_feed_rate    1200              # Default rate ( mm/minute ) for moves where only the extruder moves
+extruder.BondtechQRLeft.default_feed_rate    300               # Default rate ( mm/minute ) for moves where only the extruder moves
 extruder.BondtechQRLeft.acceleration         3600              # Acceleration for the stepper motor, as of 0.6, arbitrary ratio
-extruder.BondtechQRLeft.max_speed            20                # mm/s
+extruder.BondtechQRLeft.max_speed            30                # mm/s
 
 extruder.BondtechQRLeft.step_pin             2.3               # Pin for extruder step signal
 extruder.BondtechQRLeft.dir_pin              0.22              # Pin for extruder dir signal
@@ -174,9 +173,9 @@ delta_current                                1.2               # 1st extruder st
 # ---------------------------------------------------------------------
 extruder.BondtechQRRight.enable              true              # Whether to activate the extruder module at all. All configuration is ignored if false
 extruder.BondtechQRRight.steps_per_mm        466               # TMC2208 -> 466 / TMC2100 -> 468 / RAPS128 -> 3680 / DRV8825 -> 916  # Steps per mm for extruder stepper
-extruder.BondtechQRRight.default_feed_rate   1200              # Default rate ( mm/minute ) for moves where only the extruder moves
+extruder.BondtechQRRight.default_feed_rate   300               # Default rate ( mm/minute ) for moves where only the extruder moves
 extruder.BondtechQRRight.acceleration        3600              # Acceleration for the stepper motor, as of 0.6, arbitrary ratio
-extruder.BondtechQRRight.max_speed           20                # mm/s
+extruder.BondtechQRRight.max_speed           300               # mm/s
 
 extruder.BondtechQRRight.step_pin            2.8               # Pin for extruder step signal
 extruder.BondtechQRRight.dir_pin             2.13!             # Pin for extruder dir signal
@@ -199,9 +198,9 @@ temperature_control.hotend.max_temp            300              # Set maximum te
 
 # Hotend PID configuration
 # ---------------------------------------------------------------------
-temperature_control.hotend.p_factor            38.8
-temperature_control.hotend.i_factor            4.228
-temperature_control.hotend.d_factor            89
+temperature_control.hotend.p_factor            60.9
+temperature_control.hotend.i_factor            6.801
+temperature_control.hotend.d_factor            136
 
 # Heated bed PID configuration
 # temperature_control.bed.thermistor can be one of the following:
@@ -335,7 +334,6 @@ custom_menu.fan4.enable                        true              #
 custom_menu.fan4.name                          Fan_100pct        #
 custom_menu.fan4.command                       M106_S255         #
 
-custom_menu.mainfan0.enable                    true              #
 custom_menu.mainfan0.name                      Main_Fan_On       #
 custom_menu.mainfan0.command                   M42_S255          #
 custom_menu.mainfan1.enable                    true              #
