@@ -263,10 +263,10 @@ panel.click_button_pin                         1.30!^            # click button 
 #panel.buzz_pin                                 1.31              # pin for buzzer      ; GLCD EXP1 Pin 1
 panel.back_button_pin                          2.11!^            # 2.11 menu back      ; GLCD EXP2 Pin 8
 # setup for external sd card on the GLCD which uses the onboard sdcard SPI port
-panel.external_sd                              true              # set to true if there is an extrernal sdcard on the panel
-panel.external_sd.spi_channel                  1                 # set spi channel the sdcard is on
-panel.external_sd.spi_cs_pin                   0.28              # set spi chip select for the sdcard (or any spare pin)
-panel.external_sd.sdcd_pin                     0.27!^            # sd detect signal (set to nc if no sdcard detect) (or any spare pin)         # sd detect signal (set to nc if no sdcard detect) (or any spare pin)
+panel.external_sd                              false             # set to true if there is an extrernal sdcard on the panel
+#panel.external_sd.spi_channel                  1                 # set spi channel the sdcard is on
+#panel.external_sd.spi_cs_pin                   0.28              # set spi chip select for the sdcard (or any spare pin)
+#panel.external_sd.sdcd_pin                     0.27!^            # sd detect signal (set to nc if no sdcard detect) (or any spare pin)         # sd detect signal (set to nc if no sdcard detect) (or any spare pin)
 # disable buzzer
 switch.nonoise.enable                          true
 switch.nonoise.output_pin                      1.31v
