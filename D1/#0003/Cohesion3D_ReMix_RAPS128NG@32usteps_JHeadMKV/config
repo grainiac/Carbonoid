@@ -164,8 +164,8 @@ extruder.BondtechQRLeft.acceleration         2000              # Acceleration fo
 extruder.BondtechQRLeft.max_speed            30                # mm/s
 
 extruder.BondtechQRLeft.step_pin             2.3               # Pin for extruder step signal
-extruder.BondtechQRLeft.dir_pin              0.22              # Pin for extruder dir signal
-extruder.BondtechQRLeft.en_pin               0.21              # Pin for extruder enable signal
+extruder.BondtechQRLeft.dir_pin              0.22!             # Pin for extruder dir signal
+extruder.BondtechQRLeft.en_pin               0.21!             # Pin for extruder enable signal
 delta_current                                1.0               # 1st extruder stepper motor current
 
 # 2nd extruder module configuration
