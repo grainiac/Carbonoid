@@ -2,7 +2,7 @@
 
 This is my tool change gcode I use in Simplify3D:
 
-'''
+```
 ; ====================== Tool Change BEGIN =======================
 ; all settings optimized for a 60 mm PTFE tube used on hotend side
 ;
@@ -37,4 +37,4 @@ G1 Z-1 F2000    ; Return Z to resume printing
 G90             ; Absolute Coordinates
 ;
 ; ====================== Tool Change END =========================
-'''
+```
