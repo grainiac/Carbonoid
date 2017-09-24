@@ -14,7 +14,7 @@ M665 L287.5000 R153.5885
 ;WCS settings
 G54
 ;Digipot Motor currents:
-M907 X1.00000 Y1.00000 Z1.00000 A1.00000 
+M907 X1.00000 Y1.00000 Z1.00000 A0.60000 
 ;Home offset (mm):
 M206 X0.00 Y0.00 Z-2.76 
 ;Trim (mm):
