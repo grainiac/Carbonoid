@@ -10,13 +10,13 @@ M203 X200.00000 Y200.00000 Z200.00000
 ;Max actuator feedrates in mm/sec:
 M203.1 X200.00000 Y200.00000 Z200.00000 
 ;Optional arm solution specific settings:
-M665 L386.0000 R168.8802
+M665 L386.0000 R168.6823
 ;WCS settings
 G54
 ;Home offset (mm):
-M206 X0.00 Y0.00 Z6.80 
+M206 X0.00 Y0.00 Z6.60 
 ;Trim (mm):
-M666 X-0.337 Y-0.560 Z-0.043
+M666 X-0.352 Y-0.419 Z0.000
 ;Max Z
 M665 Z267.500
 ;E Steps per mm:
@@ -39,8 +39,8 @@ M143 S0 P300.0000
 M301 S1 P143.1000 I12.8960 D397.0000 X255.0000 Y255
 ;Max temperature setting:
 M143 S1 P130.0000
-;Probe feedrates Slow/fast(K)/Return (mm/sec) max_z (mm) height (mm):
-M670 S22.00 K66.00 R0.00 Z267.50 H15.00
+;Probe feedrates Slow/fast(K)/Return (mm/sec) max_z (mm) height (mm) dwell (s):
+M670 S22.00 K66.00 R0.00 Z267.50 H15.00 D0.00
 ;Probe offsets:
 M565 X0.00000 Y0.00000 Z0.00000
 ;Load saved grid
