@@ -4,7 +4,7 @@ M92 X160.00000 Y160.00000 Z160.00000
 ;Acceleration mm/sec^2:
 M204 S2000.00000 
 ;X- Junction Deviation, Z- Z junction deviation, S - Minimum Planner speed mm/sec:
-M205 X0.01000 Z-1.00000 S0.00000
+M205 X0.00100 Z-1.00000 S0.00000
 ;Max cartesian feedrates in mm/sec:
 M203 X200.00000 Y200.00000 Z200.00000
 ;Max actuator feedrates in mm/sec:
@@ -28,9 +28,9 @@ M207 S1.5000 F3000.0000 Z0.0000 Q6000.0000 P65114
 ;E retract recover length, feedrate:
 M208 S0.0000 F480.0000 P65114
 ;E acceleration mm/sec²:
-M204 E100.0000 P65114
+M204 E125.0000 P65114
 ;E max feed rate mm/sec:
-M203 E50.0000 P65114
+M203 E30.0000 P65114
 ;E Steps per mm:
 M92 E2650.0000 P59085
 ;E Filament diameter:
@@ -40,9 +40,9 @@ M207 S1.5000 F3000.0000 Z0.0000 Q6000.0000 P59085
 ;E retract recover length, feedrate:
 M208 S0.0000 F480.0000 P59085
 ;E acceleration mm/sec²:
-M204 E100.0000 P59085
+M204 E125.0000 P59085
 ;E max feed rate mm/sec:
-M203 E50.0000 P59085
+M203 E30.0000 P59085
 ;PID settings:
 M301 S0 P30.2000 I1.7620 D129.0000 X255.0000 Y255
 ;Max temperature setting:
