@@ -160,7 +160,7 @@ z_axis_max_speed                             12000.0          # mm/min
 extruder.BondtechQRLeft.enable               true              # Whether to activate the extruder module at all. All configuration is ignored if false
 extruder.BondtechQRLeft.steps_per_mm         2400              # TMC2208 -> 466 / TMC2100 -> 468 / RAPS128 -> 3680 / DRV8825 -> 916  # Steps per mm for extruder stepper
 extruder.BondtechQRLeft.default_feed_rate    300               # Default rate ( mm/minute ) for moves where only the extruder moves
-extruder.BondtechQRLeft.acceleration         75                # Acceleration for the stepper motor, as of 0.6, arbitrary ratio
+extruder.BondtechQRLeft.acceleration         100               # Acceleration for the stepper motor, as of 0.6, arbitrary ratio
 extruder.BondtechQRLeft.max_speed            50                # mm/s
 
 extruder.BondtechQRLeft.step_pin             2.3               # Pin for extruder step signal
@@ -173,7 +173,7 @@ delta_current                                1.0               # 1st extruder st
 extruder.BondtechQRRight.enable              true              # Whether to activate the extruder module at all. All configuration is ignored if false
 extruder.BondtechQRRight.steps_per_mm        2400              # TMC2208 -> 466 / TMC2100 -> 468 / RAPS128 -> 3680 / DRV8825 -> 916  # Steps per mm for extruder stepper
 extruder.BondtechQRRight.default_feed_rate   300               # Default rate ( mm/minute ) for moves where only the extruder moves
-extruder.BondtechQRRight.acceleration        750               # Acceleration for the stepper motor, as of 0.6, arbitrary ratio
+extruder.BondtechQRRight.acceleration        100               # Acceleration for the stepper motor, as of 0.6, arbitrary ratio
 extruder.BondtechQRRight.max_speed           50                # mm/s
 
 extruder.BondtechQRRight.step_pin            2.8               # Pin for extruder step signal
