@@ -30,7 +30,7 @@ M208 S0.0000 F480.0000 P65114
 ;E acceleration mm/sec²:
 M204 E125.0000 P65114
 ;E max feed rate mm/sec:
-M203 E30.0000 P65114
+M203 E5.5000 P65114
 ;E Steps per mm:
 M92 E2650.0000 P59085
 ;E Filament diameter:
@@ -42,7 +42,7 @@ M208 S0.0000 F480.0000 P59085
 ;E acceleration mm/sec²:
 M204 E125.0000 P59085
 ;E max feed rate mm/sec:
-M203 E30.0000 P59085
+M203 E5.5000 P59085
 ;PID settings:
 M301 S0 P30.2000 I1.7620 D129.0000 X255.0000 Y255
 ;Max temperature setting:
