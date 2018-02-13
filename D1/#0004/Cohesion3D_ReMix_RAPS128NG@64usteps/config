@@ -335,6 +335,7 @@ custom_menu.fan4.enable                        true              #
 custom_menu.fan4.name                          Fan_100pct        #
 custom_menu.fan4.command                       M106_S255         #
 
+custom_menu.mainfan0.enable                    true              #
 custom_menu.mainfan0.name                      Main_Fan_On       #
 custom_menu.mainfan0.command                   M42_S255          #
 custom_menu.mainfan1.enable                    true              #
