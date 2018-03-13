@@ -10,19 +10,19 @@ M203 X200.00000 Y200.00000 Z200.00000
 ;Max actuator feedrates in mm/sec:
 M203.1 X200.00000 Y200.00000 Z200.00000 
 ;Optional arm solution specific settings:
-M665 L287.5000 R153.3959
+M665 L287.5000 R153.6353
 ;WCS settings
 G54
 ;Digipot Motor currents:
-M907 X1.25000 Y1.25000 Z1.25000 A1.00000 
+M907 X1.00000 Y1.00000 Z1.00000 A0.60000 
 ;Home offset (mm):
-M206 X0.00 Y0.00 Z12.60 
+M206 X0.00 Y0.00 Z-5.81 
 ;Trim (mm):
-M666 X-0.078 Y-0.297 Z-0.892
+M666 X-0.172 Y-0.720 Z-1.612
 ;Max Z
 M665 Z250.000
 ;E Steps per mm:
-M92 412.0000 P9677
+M92 E412.0000 P9677
 ;E Filament diameter:
 M200 D0.0000 P9677
 ;E retract length, feedrate:
@@ -34,15 +34,15 @@ M204 E4800.0000 P9677
 ;E max feed rate mm/sec:
 M203 E50.0000 P9677
 ;PID settings:
-M301 S0 P39.4329 I3.0807 D126.1853 X255.0000 Y255
+M301 S0 P39.6066 I2.6230 D149.5149 X255.0000 Y255
 ;Max temperature setting:
 M143 S0 P245.0000
 ;PID settings:
-M301 S1 P122.4903 I4.4461 D843.6518 X255.0000 Y255
+M301 S1 P222.9229 I9.7134 D1279.0201 X255.0000 Y255
 ;Max temperature setting:
 M143 S1 P130.0000
-;Probe feedrates Slow/fast(K)/Return (mm/sec) max_z (mm) height (mm):
-M670 S22.00 K66.00 R0.00 Z250.00 H15.00
+;Probe feedrates Slow/fast(K)/Return (mm/sec) max_z (mm) height (mm) dwell (s):
+M670 S22.00 K66.00 R0.00 Z250.00 H15.00 D0.00
 ;Probe offsets:
 M565 X0.00000 Y0.00000 Z0.00000
 ;Load saved grid
