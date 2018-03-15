@@ -89,7 +89,7 @@ gamma_steps_per_mm                           160              # Steps per mm for
 acceleration                                 2000             # Acceleration in mm/second*second.
 acceleration_ticks_per_second                1000             # Number of times per second the speed is updated
 planner_queue_size                           32               # DO NOT CHANGE THIS UNLESS YOU KNOW EXACTLY WHAT YOUR ARE DOING
-junction_deviation                           0.001            # Similar to the old "max_jerk", in millimeters, see : https://github.com/grbl/grbl/blob/master/planner.c#L409
+junction_deviation                           0.1              # Similar to the old "max_jerk", in millimeters, see : https://github.com/grbl/grbl/blob/master/planner.c#L409
 
 
 # Endstops
@@ -157,29 +157,29 @@ z_axis_max_speed                             12000.0          # mm/min
 
 # 1st extruder module configuration
 # ---------------------------------------------------------------------
-extruder.BondtechQRLeft.enable               true              # Whether to activate the extruder module at all. All configuration is ignored if false
-extruder.BondtechQRLeft.steps_per_mm         2650              # TMC2208 -> 466 / TMC2100 -> 468 / RAPS128 -> 3680 / DRV8825 -> 916  # Steps per mm for extruder stepper
-extruder.BondtechQRLeft.default_feed_rate    300               # Default rate ( mm/minute ) for moves where only the extruder moves
-extruder.BondtechQRLeft.acceleration         75                # Acceleration for the stepper motor, as of 0.6, arbitrary ratio
-extruder.BondtechQRLeft.max_speed            30                # mm/s
+extruder.ZestyNimble.enable                   true              # Whether to activate the extruder module at all. All configuration is ignored if false
+extruder.ZestyNimble.steps_per_mm             2650              # TMC2208 -> 466 / TMC2100 -> 468 / RAPS128 -> 3680 / DRV8825 -> 916  # Steps per mm for extruder stepper
+extruder.ZestyNimble.default_feed_rate        600               # Default rate ( mm/minute ) for moves where only the extruder moves
+extruder.ZestyNimble.acceleration             125               # Acceleration for the stepper motor, as of 0.6, arbitrary ratio
+extruder.ZestyNimble.max_speed                50                # mm/s
+extruder.ZestyNimble.step_pin                 2.3               # Pin for extruder step signal
+extruder.ZestyNimble.dir_pin                  0.22              # Pin for extruder dir signal
+extruder.ZestyNimble.en_pin                   0.21              # Pin for extruder enable signal
 
-extruder.BondtechQRLeft.step_pin             2.3               # Pin for extruder step signal
-extruder.BondtechQRLeft.dir_pin              0.22              # Pin for extruder dir signal
-extruder.BondtechQRLeft.en_pin               0.21              # Pin for extruder enable signal
-delta_current                                1.0               # 1st extruder stepper motor current
+#delta_current                                1.0               # 1st extruder stepper motor current
 
 # 2nd extruder module configuration
 # ---------------------------------------------------------------------
 extruder.BondtechQRRight.enable              true              # Whether to activate the extruder module at all. All configuration is ignored if false
 extruder.BondtechQRRight.steps_per_mm        2650              # TMC2208 -> 466 / TMC2100 -> 468 / RAPS128 -> 3680 / DRV8825 -> 916  # Steps per mm for extruder stepper
 extruder.BondtechQRRight.default_feed_rate   300               # Default rate ( mm/minute ) for moves where only the extruder moves
-extruder.BondtechQRRight.acceleration        75                # Acceleration for the stepper motor, as of 0.6, arbitrary ratio
-extruder.BondtechQRRight.max_speed           30                # mm/s
-
+extruder.BondtechQRRight.acceleration        125               # Acceleration for the stepper motor, as of 0.6, arbitrary ratio
+extruder.BondtechQRRight.max_speed           50                # mm/s
 extruder.BondtechQRRight.step_pin            2.8               # Pin for extruder step signal
 extruder.BondtechQRRight.dir_pin             2.13!             # Pin for extruder dir signal
 extruder.BondtechQRRight.en_pin              4.29              # Pin for extruder enable signal
-epsilon_current                              1.0               # 2nd extruder stepper motor current
+
+#epsilon_current                              1.0               # 2nd extruder stepper motor current
 
 # Hotend temperature control configuration
 # temperature_control.hotend.thermistor can be one of the following:
